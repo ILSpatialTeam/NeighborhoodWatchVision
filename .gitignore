@@ -1,0 +1,10 @@
+# XcodeGen generated project
+*.xcodeproj
+
+# Xcode user data
+xcuserdata/
+*.xcuserstate
+
+# Build artifacts
+DerivedData/
+build/
