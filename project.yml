@@ -69,7 +69,19 @@ targets:
       # Uncomment if you split into local SPM packages:
       # - package: MyCore
       # - package: MySpatial
-      - package: RealityKitContent
+        - package: RealityKitContent
+        - package: ILSDesignSystem
+        - package: ILSEngine
+        - package: ILSFoundation
+        - package: ILSNetwork
+        - package: ILSHandTracking
+        - package: ILSSpatialAudio
+        - package: ILSSpatialDraw
+        - package: ILSRealityAssets
+        - package: mlx-swift
+        - package: mlx-swift-lm
+        - package: swift-transformers
+
 
     info:
       path: NeighborhoodWatchVision/Info.plist
@@ -106,3 +118,28 @@ packages:
   #   from: "1.0.0"
   RealityKitContent:
     path: Packages/RealityKitContent
+  ILSDesignSystem:
+    path: sharedPackage/Components/ILSDesignSystem
+  ILSEngine:
+    path: sharedPackage/Core/ILSEngine
+  ILSFoundation:
+    path: sharedPackage/Core/ILSFoundation
+  ILSNetwork:
+    path: sharedPackage/Core/ILSNetwork
+  ILSHandTracking:
+    path: sharedPackage/Features/ILSHandTracking
+  ILSSpatialAudio:
+    path: sharedPackage/Features/ILSSpatialAudio
+  ILSSpatialDraw:
+    path: sharedPackage/Features/ILSSpatialDraw
+  ILSRealityAssets:
+    path: sharedPackage/RealityKitContent/ILSRealityAssets
+  mlx-swift:
+    url: https://github.com/ml-explore/mlx-swift.git
+    from: 0.31.6
+  mlx-swift-lm:
+    url: https://github.com/ml-explore/mlx-swift-lm.git
+    from: 3.31.4
+  swift-transformers:
+    url: https://github.com/huggingface/swift-transformers.git
+    from: 1.3.3
