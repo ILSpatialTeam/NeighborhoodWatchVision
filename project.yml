@@ -1,7 +1,7 @@
 name: NeighborhoodWatchVision
 
 options:
-  bundleIdPrefix: com.NeighborhoodWatchVision
+  bundleIdPrefix: com.yourcompany
   deploymentTarget:
     visionOS: "26.0"
   generateEmptyDirectories: true
@@ -32,32 +32,22 @@ targets:
       visionOS: "26.0"
     sources:
       - path: NeighborhoodWatchVision
-        excludes:
-          - "**/*.xcassets/.*"
     resources:
       - path: NeighborhoodWatchVision/Resources
         optional: true
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.NeighborhoodWatchVision
+        PRODUCT_BUNDLE_IDENTIFIER: com.yourcompany.NeighborhoodWatchVision
         PRODUCT_NAME: NeighborhoodWatchVision
         INFOPLIST_FILE: NeighborhoodWatchVision/Info.plist
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
-        DEVELOPMENT_TEAM: ${XCONFIG["ID"]}
+        DEVELOPMENT_TEAM: S8QWSSL8FP
         CODE_SIGN_STYLE: Automatic
         CURRENT_PROJECT_VERSION: 1
         MARKETING_VERSION: "1.0.0"
-        
-
-        # Swift / Concurrency
         SWIFT_EMIT_LOC_STRINGS: true
         SWIFT_OPTIMIZATION_LEVEL[config=Debug]: "-Onone"
         SWIFT_OPTIMIZATION_LEVEL[config=Release]: "-Owholemodule"
-
-        # visionOS specifics
-#        SUPPORTED_PLATFORMS: xros
-#        SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD: false
-
       configs:
         Debug:
           SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG
@@ -66,47 +56,62 @@ targets:
           SWIFT_COMPILATION_MODE: wholemodule
 
     dependencies:
-      # Uncomment if you split into local SPM packages:
-      # - package: MyCore
-      # - package: MySpatial
-        - package: RealityKitContent
-        - package: ILSDesignSystem
-        - package: ILSEngine
-        - package: ILSFoundation
-        - package: ILSNetwork
-        - package: ILSHandTracking
-        - package: ILSSpatialAudio
-        - package: ILSSpatialDraw
-        - package: ILSRealityAssets
-        - package: mlx-swift
-        - package: mlx-swift-lm
-        - package: swift-transformers
-
-
+      - package: RealityKitContent
+        product: RealityKitContent
+      - package: ILSDesignSystem
+        product: ILSDesignSystem
+      - package: ILSEngine
+        product: ILSEngine
+      - package: ILSFoundation
+        product: ILSFoundation
+      - package: ILSNetwork
+        product: ILSNetwork
+      - package: ILSHandTracking
+        product: ILSHandTracking
+      - package: ILSSpatialAudio
+        product: ILSSpatialAudio
+      - package: ILSSpatialDraw
+        product: ILSSpatialDraw
+      - package: ILSRealityAssets
+        product: ILSRealityAssets
+    # MLX Swift core (numerics / NN layers)
+      - package: mlx-swift
+    # MLX Swift LM (LLM loading + inference)
+      - package: mlx-swift-lm
+    # Hugging Face tokenizer/hub utilities
+      - package: swift-transformers
+        
     info:
       path: NeighborhoodWatchVision/Info.plist
       properties:
         CFBundleDevelopmentRegion: en
         CFBundleDisplayName: NeighborhoodWatchVision
         CFBundleShortVersionString: "1.0.0"
-        CFBundleVersion: "1.0"
+        CFBundleVersion: "1"
         UIApplicationSceneManifest:
           UIApplicationSupportsMultipleScenes: true
-        # Immersive Space scene (RealityKit)
         UIApplicationPreferredDefaultSceneSessionRole: UIWindowSceneSessionRoleVolumetricApplication
-        
 
     preBuildScripts: []
     postBuildScripts: []
-    # Uncomment for SwiftLint:
-    # preBuildScripts:
-    #   - name: SwiftLint
-    #     basedOnDependencyAnalysis: false
-    #     shell: /bin/sh
-    #     script: |
-    #       if command -v swiftlint >/dev/null 2>&1; then
-    #         swiftlint
-    #       fi
+
+  # ───────────────────────────────────────────
+  # Unit Test Target
+  # ───────────────────────────────────────────
+#  NeighborhoodWatchVisionTests:
+#    type: bundle.unit-test
+#    platform: visionOS
+#    sources:
+#      - path: NeighborhoodWatchVisionTests
+#    dependencies:
+#      - target: NeighborhoodWatchVision
+#    settings:
+#      base:
+#        PRODUCT_BUNDLE_IDENTIFIER: com.yourcompany.NeighborhoodWatchVision.tests
+#        TEST_HOST: "$(BUILT_PRODUCTS_DIR)/NeighborhoodWatchVision.app/NeighborhoodWatchVision"
+#        BUNDLE_LOADER: "$(TEST_HOST)"
+#        DEVELOPMENT_TEAM: S8QWSSL8FP
+#        CODE_SIGN_STYLE: Automatic
 
 # ───────────────────────────────────────────
 # Swift Packages (SPM)
@@ -143,3 +148,31 @@ packages:
   swift-transformers:
     url: https://github.com/huggingface/swift-transformers.git
     from: 1.3.3
+    
+# ───────────────────────────────────────────
+# Schemes
+# ───────────────────────────────────────────
+#schemes:
+#  NeighborhoodWatchVision:
+#    build:
+#      targets:
+#        NeighborhoodWatchVision: all
+#        NeighborhoodWatchVisionTests: [test]
+#    run:
+#      config: Debug
+#      environmentVariables:
+#        - variable: ENABLE_PREVIEWS
+#          value: "0"
+#          isEnabled: false
+#    test:
+#      config: Debug
+#      gatherCoverageData: true
+#      targets:
+#        - name: NeighborhoodWatchVisionTests
+#          parallelizable: true
+#    profile:
+#      config: Release
+#    analyze:
+#      config: Debug
+#    archive:
+#      config: Release

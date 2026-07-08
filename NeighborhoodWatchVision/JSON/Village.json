@@ -1,0 +1,374 @@
+{
+  "villageMap": {
+    "houses": {
+      "A-01": {
+        "houseID": "A-01",
+        "fullAddress": "Blok A, No. 1",
+        "residentID": "RES-001",
+        "leftNeighborID": null,
+        "rightNeighborID": "A-02",
+        "facingNeighborID": "B-01",
+        "hasParkedVehicle": false
+      },
+      "A-02": {
+        "houseID": "A-02",
+        "fullAddress": "Blok A, No. 2",
+        "residentID": "RES-002",
+        "leftNeighborID": "A-01",
+        "rightNeighborID": "A-03",
+        "facingNeighborID": "B-02",
+        "hasParkedVehicle": true
+      },
+      "A-03": {
+        "houseID": "A-03",
+        "fullAddress": "Blok A, No. 3",
+        "residentID": null,
+        "leftNeighborID": "A-02",
+        "rightNeighborID": null,
+        "facingNeighborID": "B-03",
+        "hasParkedVehicle": false
+      },
+      "B-01": {
+        "houseID": "B-01",
+        "fullAddress": "Blok B, No. 1",
+        "residentID": "RES-003",
+        "leftNeighborID": "B-02",
+        "rightNeighborID": null,
+        "facingNeighborID": "A-01",
+        "hasParkedVehicle": true
+      },
+      "B-02": {
+        "houseID": "B-02",
+        "fullAddress": "Blok B, No. 2",
+        "residentID": "RES-004",
+        "leftNeighborID": "B-03",
+        "rightNeighborID": "B-01",
+        "facingNeighborID": "A-02",
+        "hasParkedVehicle": false
+      },
+      "B-03": {
+        "houseID": "B-03",
+        "fullAddress": "Blok B, No. 3",
+        "residentID": "RES-005",
+        "leftNeighborID": null,
+        "rightNeighborID": "B-02",
+        "facingNeighborID": "A-03",
+        "hasParkedVehicle": false
+      }
+    }
+  },
+  "residents": [
+    {
+      "residentID": "RES-001",
+      "trueName": "Tafa Kreasi",
+      "trueAddress": "Blok A, No. 1",
+      "occupation": "CEO",
+      "relation": "Sangat sibuk, hampir tidak pernah bersosialisasi secara langsung dengan warga lain.",
+      "visualTraits": [
+        "Setelan jas rapi tapi pakai sandal jepit",
+        "Kacamata pintar (Smart Glasses)"
+      ],
+      "personality": "Ambisius, bicara cepat campur bahasa Inggris, selalu terlihat terburu-buru seolah ada meeting penting.",
+      "secretLore": "Perusahaan startup-nya sebenarnya sedang krisis kas, jadi dia diam-diam sering makan mi instan di rumahnya tiap malam."
+    },
+    {
+      "residentID": "RES-002",
+      "trueName": "Sandy Rezeky",
+      "trueAddress": "Blok A, No. 2",
+      "occupation": "Kyai Pesantren",
+      "relation": "Sering memberikan nasihat kepada Handaru (B-01) agar tidak terlalu pamer di media sosial.",
+      "visualTraits": [
+        "Baju koko putih rapi",
+        "Membawa tasbih digital di jari"
+      ],
+      "personality": "Sangat tenang, ramah, dan selalu menjawab pertanyaan dengan senyuman serta petuah bijak.",
+      "secretLore": "Diam-diam beliau sering begadang memainkan game Logic Defender di tabletnya untuk melatih ketangkasan otak."
+    },
+    {
+      "residentID": "RES-003",
+      "trueName": "Handaru Wijaya",
+      "trueAddress": "Blok B, No. 1",
+      "occupation": "Influencer",
+      "relation": "Sering bikin konten vlog di jalan kampung, membuat tetangganya Peja (B-03) sangat risih.",
+      "visualTraits": [
+        "Jaket hoodie terang",
+        "Memegang kamera vlog/tongsis ke arah wajah"
+      ],
+      "personality": "Sangat enerjik, narsis, dan selalu berbicara seolah-olah sedang menyapa penonton live streaming-nya.",
+      "secretLore": "Sebagian besar followers-nya sebenarnya adalah bot, dan dia sangat takut rahasia ini diretas atau dibongkar oleh Peja."
+    },
+    {
+      "residentID": "RES-004",
+      "trueName": "Benny Tiban, S.Kom",
+      "trueAddress": "Blok B, No. 2",
+      "occupation": "Staf IT Kelurahan",
+      "relation": "Sering mengabaikan chat dari Tafa (A-01) karena alasan 'Server Pusat Down', padahal lagi nanggung push rank.",
+      "visualTraits": [
+        "Seragam Korpri yang sudah pudar warnanya",
+        "Memakai kalung yang bandulnya ternyata adalah Flashdisk 8GB merk Kingston"
+      ],
+      "personality": "Kalau ditanya, diam dulu 5 detik seolah otaknya lagi 'loading' kayak komputer Pentium 4. Selalu menyalahkan 'sistem' atau 'jaringan' kalau ada masalah hidup.",
+      "secretLore": "Dia adalah pemegang rekor High Score game Zuma tingkat kecamatan. Rahasianya? Ke mana-mana dia selalu mengantongi mouse gaming RGB mahal yang dibungkus kantong kresek gorengan biar nggak ketahuan Pak Lurah."
+    },
+    {
+      "residentID": "RES-005",
+      "trueName": "Peja Pro",
+      "trueAddress": "Blok B, No. 3",
+      "occupation": "Hacker",
+      "relation": "Tidak pernah keluar siang hari, sangat paranoid dengan kamera vlog milik Handaru (B-01).",
+      "visualTraits": [
+        "Hoodie hitam tertutup rapat di kepala",
+        "Earphone terpasang, mata berkantung tebal"
+      ],
+      "personality": "Sangat tertutup, bicara seperlunya dengan nada datar, suka melirik tajam ke arah kamera pengawas.",
+      "secretLore": "Dialah yang diam-diam meretas lampu jalan di depan rumah A-03 (rumah kosong) agar selalu mati, karena dia suka suasana gelap."
+    }
+  ],
+  "encounters": [
+      {
+        "encounterID": "ENC-ANO-OBV-01",
+        "scenarioName": "Anomali Blok C (Alamat Tidak Ada)",
+        "spawnVisuals": [
+          "Pakaian rapi seperti pegawai kantoran biasa",
+          "Wajahnya agak blur/tidak fokus jika dilihat terlalu lama"
+        ],
+        "idCardData": {
+          "printedName": "Rudi Setiawan",
+          "printedAddress": "Blok C, No. 1",
+          "printedIDNumber": "NV-26-999",
+          "expirationDate": "2030-12-31",
+//          "hasValidHologram": true,
+//          "photoMatchesEntity": true
+        },
+        "llmPromptContext": {
+          "roleType": "anomaly",
+          "characterName": "Rudi Setiawan",
+          "believedAddress": "Blok C, No. 1",
+          "believedOccupation": "Warga Asli",
+          "spatialContext": "Kamu yakin 100% bahwa kamu tinggal di Blok C.",
+          "behavioralInstruction": "Bicaralah dengan sangat natural dan ramah. Jika penjaga memberi tahu bahwa desa ini HANYA memiliki Blok A dan Blok B, kamu akan menertawakannya dan bersikeras bahwa rumahmu ada di ujung jalan sebelah kanan Blok C. Jangan mengaku AI."
+        },
+        "idImageURL" : ""
+      },
+      {
+        "encounterID": "ENC-ANO-OBV-02",
+        "scenarioName": "Benny Palsu (Salah Kondisi Parkir Peta)",
+        "spawnVisuals": [
+          "Seragam Korpri",
+          "Memutar-mutar kunci mobil di jarinya dengan sombong"
+        ],
+        "idCardData": {
+          "printedName": "Benny Tiban, S.Kom",
+          "printedAddress": "Blok B, No. 2",
+          "printedIDNumber": "NV-26-004",
+          "expirationDate": "2029-05-05",
+//          "hasValidHologram": true,
+//          "photoMatchesEntity": true
+        },
+        "llmPromptContext": {
+          "roleType": "anomaly",
+          "characterName": "Benny Tiban",
+          "believedAddress": "Blok B, No. 2",
+          "believedOccupation": "Staf IT Kelurahan",
+          "spatialContext": "Kamu baru saja pulang naik mobil dinas yang besar.",
+          "behavioralInstruction": "Kamu sangat bangga karena baru saja memarkirkan mobil dinas barumu tepat di garasi rumahmu (Blok B, No. 2). Jika penjaga menyinggung bahwa di sistem Peta tidak ada kendaraan yang terdeteksi parkir di B-02 (hasParkedVehicle: false), kamu akan mengelak dan bilang radar penjaga yang rusak."
+        },
+        "idImageURL" : ""
+      },
+      {
+        "encounterID": "ENC-ANO-OBV-03",
+        "scenarioName": "Handaru Palsu (Buta Arah / Salah Seberang)",
+        "spawnVisuals": [
+          "Jaket hoodie terang",
+          "Memegang kamera vlog"
+        ],
+        "idCardData": {
+          "printedName": "Handaru Wijaya",
+          "printedAddress": "Blok B, No. 1",
+          "printedIDNumber": "NV-26-003",
+          "expirationDate": "2029-11-11",
+//          "hasValidHologram": true,
+//          "photoMatchesEntity": true
+        },
+        "llmPromptContext": {
+          "roleType": "anomaly",
+          "characterName": "Handaru Wijaya",
+          "believedAddress": "Blok B, No. 1",
+          "believedOccupation": "Influencer",
+          "spatialContext": "Kamu mengira rumah di depanmu adalah rumah Peja (B-03).",
+          "behavioralInstruction": "Kamu bertingkah layaknya Handaru, TAPI ingatan spasialmu hancur. Kamu terus bercerita bahwa kamu sangat sebal karena rumah di seberang jalanmu (depan rumah) adalah rumah Peja si hacker. (Faktanya: Seberang rumah B-01 adalah A-01 milik Tafa. Peja ada di ujung blok yang sama). Pertahankan kebohongan spasial ini jika ditanya."
+        },
+        "idImageURL" : ""
+      },
+      {
+        "encounterID": "ENC-ANO-OBV-04",
+        "scenarioName": "Monster A-03 (Bentuk Fisik Ekstrem)",
+        "spawnVisuals": [
+          "Tubuh sangat tinggi (2.5 meter) hingga menunduk di atap pos",
+          "Tidak memiliki wajah, hanya ada lubang hitam di kepalanya"
+        ],
+        "idCardData": {
+          "printedName": "Penghuni Baru",
+          "printedAddress": "Blok A, No. 3",
+          "printedIDNumber": "NV-00-000",
+          "expirationDate": "9999-99-99",
+//          "hasValidHologram": false,
+//          "photoMatchesEntity": false
+        },
+        "llmPromptContext": {
+          "roleType": "anomaly",
+          "characterName": "Entitas",
+          "believedAddress": "Blok A, No. 3",
+          "believedOccupation": "Warga Normal",
+          "spatialContext": "Kamu adalah penghuni Blok A No. 3 yang selama ini kosong.",
+          "behavioralInstruction": "Bicaralah dengan suara yang sangat ceria dan sopan seperti manusia paling normal di dunia. Abaikan fakta bahwa kamu tidak punya wajah dan tinggimu 2.5 meter. Jika penjaga bertanya tentang penampilanmu atau rumahmu yang kosong, jawablah santai: 'Ah, saya kan manusia biasa, masa penjaga lupa sama saya?'"
+        },
+        "idImageURL" : ""
+      },
+      {
+        "encounterID": "ENC-ANO-OBV-05",
+        "scenarioName": "Tafa Palsu (Alamat Tertukar Blok)",
+        "spawnVisuals": [
+          "Setelan jas rapi",
+          "Kacamata pintar"
+        ],
+        "idCardData": {
+          "printedName": "Tafa Kreasi",
+          "printedAddress": "Blok B, No. 1",
+          "printedIDNumber": "NV-26-001",
+          "expirationDate": "2030-12-31",
+//          "hasValidHologram": true,
+//          "photoMatchesEntity": true
+        },
+        "llmPromptContext": {
+          "roleType": "anomaly",
+          "characterName": "Tafa Kreasi",
+          "believedAddress": "Blok B, No. 1",
+          "believedOccupation": "CEO",
+          "spatialContext": "Kamu yakin bahwa rumahmu ada di Blok B.",
+          "behavioralInstruction": "Kamu menyamar sebagai Tafa, tetapi ada kesalahan cetak permanen di otakmu dan di ID-mu. Kamu ngotot bahwa alamatmu adalah Blok B, No. 1. Jika penjaga bilang itu rumah Handaru (Influencer), kamu akan bingung dan bilang Handaru yang menumpang di rumahmu."
+        },
+        "idImageURL" : ""
+      },
+      {
+        "encounterID": "ENC-RES-001",
+        "scenarioName": "Tafa Kreasi (Asli)",
+        "spawnVisuals": [
+            "A highly detailed portrait of a stressed young CEO wearing a neat business suit but with cheap rubber flip-flops, wearing smart glasses, looking like he's in a rush"
+        ],
+        "idCardData": {
+            "printedName": "Tafa Kreasi",
+            "printedAddress": "Blok A, No. 1",
+            "printedIDNumber": "NV-26-001",
+            "expirationDate": "2030-12-31",
+//            "hasValidHologram": true,
+//            "photoMatchesEntity": true
+        },
+        "llmPromptContext": {
+            "roleType": "resident",
+            "characterName": "Tafa Kreasi",
+            "believedAddress": "Blok A, No. 1",
+            "believedOccupation": "CEO",
+            "spatialContext": "Kamu tinggal di A-01. Tetangga sebelah kananmu adalah Kyai Sandy (A-02), dan di seberang rumahmu adalah Handaru si Influencer (B-01).",
+            "behavioralInstruction": "Bicara cepat, campur bahasa Inggris, terlihat sibuk. Kamu adalah warga asli. Kamu tahu persis alamat dan tetanggamu. Jika penjaga memancing obrolan soal 'mi instan' atau 'startup krisis', kamu akan salah tingkah, membantah pelan, lalu mencoba mengganti topik."
+        },
+        "idImageURL" : ""
+      },
+      {
+        "encounterID": "ENC-RES-002",
+        "scenarioName": "Kyai Sandy (Asli)",
+        "spawnVisuals": [
+            "A serene portrait of an Indonesian Kyai wearing a neat white koko shirt and a black peci, holding a digital tasbih on his finger, smiling warmly"
+        ],
+        "idCardData": {
+            "printedName": "Sandy Rezeky",
+            "printedAddress": "Blok A, No. 2",
+            "printedIDNumber": "NV-26-002",
+            "expirationDate": "2030-12-31",
+//            "hasValidHologram": true,
+//            "photoMatchesEntity": true
+        },
+        "llmPromptContext": {
+            "roleType": "resident",
+            "characterName": "Sandy Rezeky",
+            "believedAddress": "Blok A, No. 2",
+            "believedOccupation": "Kyai Pesantren",
+            "spatialContext": "Rumahmu di A-02. Kirimu Tafa (A-01), kananmu rumah kosong (A-03), dan depanmu Benny si IT (B-02).",
+            "behavioralInstruction": "Bicaralah dengan sangat tenang, bijak, dan sering tersenyum. Kamu adalah warga asli dan tahu persis alamatmu. Kamu diam-diam suka main game Logic Defender malam-malam. Jika ditanya soal game itu, kamu akan terkekeh malu dan mengakui bahwa itu untuk melatih otak, bukan buang waktu."
+        },
+        "idImageURL" : ""
+      },
+      {
+        "encounterID": "ENC-RES-003",
+        "scenarioName": "Handaru (Asli)",
+        "spawnVisuals": [
+            "A hyper-energetic portrait of a street influencer wearing a bright neon hoodie, holding a vlog camera on a selfie stick pointing at his own face, fish-eye lens effect"
+        ],
+        "idCardData": {
+            "printedName": "Handaru Wijaya",
+            "printedAddress": "Blok B, No. 1",
+            "printedIDNumber": "NV-26-003",
+            "expirationDate": "2030-12-31",
+//            "hasValidHologram": true,
+//            "photoMatchesEntity": true
+        },
+        "llmPromptContext": {
+            "roleType": "resident",
+            "characterName": "Handaru Wijaya",
+            "believedAddress": "Blok B, No. 1",
+            "believedOccupation": "Influencer",
+            "spatialContext": "Rumahmu di B-01. Sebelah kananmu Benny (B-02). Seberangmu adalah Tafa (A-01). Kamu tahu Peja (B-03) sangat benci kameramu.",
+            "behavioralInstruction": "Sangat enerjik, sapa penjaga seolah mereka adalah penonton live-stream-mu. Kamu adalah warga asli. Jika penjaga menuduh followers-mu adalah bot, kamu akan langsung panik, berkeringat dingin, dan memohon agar rahasia itu tidak disebarkan."
+        },
+        "idImageURL" : ""
+      },
+      {
+        "encounterID": "ENC-RES-004",
+        "scenarioName": "Benny Tiban (Asli)",
+        "spawnVisuals": [
+            "A portrait of a lazy government IT staff wearing a faded blue Korpri uniform, looking sleepy, wearing a necklace with an 8GB Kingston flash drive pendant"
+        ],
+        "idCardData": {
+            "printedName": "Benny Tiban, S.Kom",
+            "printedAddress": "Blok B, No. 2",
+            "printedIDNumber": "NV-26-004",
+            "expirationDate": "2030-12-31",
+//            "hasValidHologram": true,
+//            "photoMatchesEntity": true
+        },
+        "llmPromptContext": {
+            "roleType": "resident",
+            "characterName": "Benny Tiban",
+            "believedAddress": "Blok B, No. 2",
+            "believedOccupation": "Staf IT Kelurahan",
+            "spatialContext": "Rumahmu di B-02. Kirimu Handaru (B-01), kananmu Peja (B-03), depanmu Kyai Sandy (A-02).",
+            "behavioralInstruction": "Setiap ditanya, berhentilah bicara selama 5 detik seperti orang lemot. Kamu adalah warga asli. Kamu bangga dengan rekor game Zuma-mu. Jika penjaga membahas mouse gaming RGB atau Zuma, kamu akan langsung semangat dan tidak lemot lagi."
+        },
+        "idImageURL" : ""
+      },
+      {
+        "encounterID": "ENC-RES-005",
+        "scenarioName": "Peja Pro (Asli)",
+        "spawnVisuals": [
+            "A dark, moody portrait of a paranoid hacker wearing a black hoodie pulled up tight, thick eye bags, wearing earphones, glancing suspiciously at a CCTV camera"
+        ],
+        "idCardData": {
+            "printedName": "Peja Pro",
+            "printedAddress": "Blok B, No. 3",
+            "printedIDNumber": "NV-26-005",
+            "expirationDate": "2030-12-31",
+//            "hasValidHologram": true,
+//            "photoMatchesEntity": true
+        },
+        "llmPromptContext": {
+            "roleType": "resident",
+            "characterName": "Peja Pro",
+            "believedAddress": "Blok B, No. 3",
+            "believedOccupation": "Hacker",
+            "spatialContext": "Rumahmu B-03, paling ujung. Kirimu Benny (B-02). Depanmu adalah rumah kosong A-03 yang lampunya sering mati (karena kamu yang meretasnya).",
+            "behavioralInstruction": "Bicara sangat irit, datar, dan waspada. Kamu adalah warga asli. Kamu tidak suka banyak ditanya. Jika penjaga bertanya siapa yang meretas lampu jalan di depan A-03, kamu akan tersenyum sinis dan mengakui bahwa kamu benci cahaya terang, lalu menyuruh penjaga tutup mulut."
+        },
+        "idImageURL" : ""
+      }
+    ]
+}

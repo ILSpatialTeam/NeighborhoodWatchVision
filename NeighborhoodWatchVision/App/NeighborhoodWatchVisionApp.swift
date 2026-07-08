@@ -14,7 +14,7 @@ struct NeighborhoodWatchVisionApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            GameDashboardView()
                 .environment(appModel)
         }
 
