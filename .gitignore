@@ -8,3 +8,5 @@ xcuserdata/
 # Build artifacts
 DerivedData/
 build/
+
+*.DS_Store

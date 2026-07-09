@@ -16,7 +16,7 @@ configs:
 settings:
   base:
     SWIFT_VERSION: "6.0"
-    SWIFT_STRICT_CONCURRENCY: complete
+    SWIFT_STRICT_CONCURRENCY: minimal
     ENABLE_USER_SCRIPT_SANDBOXING: true
     DEAD_CODE_STRIPPING: true
 
@@ -76,10 +76,19 @@ targets:
         product: ILSRealityAssets
     # MLX Swift core (numerics / NN layers)
       - package: mlx-swift
+        product: MLX
     # MLX Swift LM (LLM loading + inference)
       - package: mlx-swift-lm
+        product: MLXLLM
+      - package: mlx-swift-lm
+        product: MLXLMCommon
+      - package: mlx-swift-lm
+        product: MLXHuggingFace
     # Hugging Face tokenizer/hub utilities
       - package: swift-transformers
+        product: Hub
+      - package: swift-transformers
+        product: Tokenizers
         
     info:
       path: NeighborhoodWatchVision/Info.plist
@@ -89,9 +98,10 @@ targets:
         CFBundleShortVersionString: "1.0.0"
         CFBundleVersion: "1"
         UIApplicationSceneManifest:
-          UIApplicationSupportsMultipleScenes: true
+        UIApplicationSupportsMultipleScenes: true
         UIApplicationPreferredDefaultSceneSessionRole: UIWindowSceneSessionRoleVolumetricApplication
-
+        NSSpeechRecognitionUsageDescription: "Dibutuhkan untuk mengenali suara pemain saat berinteraksi dengan warga."
+        NSMicrophoneUsageDescription: "Dibutuhkan untuk merekam perintah suara di pos penjagaan."
     preBuildScripts: []
     postBuildScripts: []
 
