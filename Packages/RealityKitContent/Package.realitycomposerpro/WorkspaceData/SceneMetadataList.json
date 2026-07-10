@@ -341,6 +341,47 @@
       }
     ]
   },
+  "9F1E47D5-92C3-4E1F-9D09-483466625824" : {
+    "objectMetadataList" : [
+      [
+        "9F1E47D5-92C3-4E1F-9D09-483466625824",
+        "Root",
+        "Pos_Satpam",
+        "Cone_Light"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "9F1E47D5-92C3-4E1F-9D09-483466625824",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "9F1E47D5-92C3-4E1F-9D09-483466625824",
+        "Root",
+        "Pos_Satpam"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "9F1E47D5-92C3-4E1F-9D09-483466625824",
+        "Root",
+        "Pos_Satpam",
+        "Whiteboard"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "A2516ECF-E888-45C4-8776-0FFE7F4B3C04" : {
     "objectMetadataList" : [
       [

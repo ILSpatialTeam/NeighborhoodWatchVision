@@ -65,7 +65,7 @@ def Xform "Root"
                 prepend apiSchemas = ["MaterialBindingAPI"]
             )
             {
-                rel material:binding = </Root/Lamp> (
+                rel material:binding = </Root/PosSatpam> (
                     bindMaterialAs = "weakerThanDescendants"
                 )
             }
@@ -102,6 +102,18 @@ def Xform "Root"
             )
             {
                 rel material:binding = </Root/RedButton> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+        }
+
+        over "Whiteboard"
+        {
+            over "Cube_010" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </Root/PosSatpam> (
                     bindMaterialAs = "weakerThanDescendants"
                 )
             }
