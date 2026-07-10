@@ -98,7 +98,7 @@ targets:
         CFBundleShortVersionString: "1.0.0"
         CFBundleVersion: "1"
         UIApplicationSceneManifest:
-        UIApplicationSupportsMultipleScenes: true
+          UIApplicationSupportsMultipleScenes: true
         UIApplicationPreferredDefaultSceneSessionRole: UIWindowSceneSessionRoleVolumetricApplication
         NSSpeechRecognitionUsageDescription: "Dibutuhkan untuk mengenali suara pemain saat berinteraksi dengan warga."
         NSMicrophoneUsageDescription: "Dibutuhkan untuk merekam perintah suara di pos penjagaan."

@@ -27,8 +27,9 @@
 	<key>UIApplicationPreferredDefaultSceneSessionRole</key>
 	<string>UIWindowSceneSessionRoleVolumetricApplication</string>
 	<key>UIApplicationSceneManifest</key>
-	<string></string>
-	<key>UIApplicationSupportsMultipleScenes</key>
-	<true/>
+	<dict>
+		<key>UIApplicationSupportsMultipleScenes</key>
+		<true/>
+	</dict>
 </dict>
 </plist>
