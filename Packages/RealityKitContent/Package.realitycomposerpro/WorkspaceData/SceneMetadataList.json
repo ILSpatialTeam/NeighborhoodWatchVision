@@ -93,16 +93,6 @@
       },
       [
         "3B86FAFA-86E9-4E44-84DB-4F9A1EF629C1",
-        "Root",
-        "SkyDome",
-        "Looks"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "3B86FAFA-86E9-4E44-84DB-4F9A1EF629C1",
         "Root"
       ],
       {
@@ -235,6 +225,15 @@
       [
         "7392CD47-E9AE-4BFF-A2E0-48E50AA3C29C",
         "Root",
+        "Streetlamp"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "7392CD47-E9AE-4BFF-A2E0-48E50AA3C29C",
+        "Root",
         "House1"
       ],
       {
@@ -245,6 +244,15 @@
         "7392CD47-E9AE-4BFF-A2E0-48E50AA3C29C",
         "Root",
         "Bench"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "7392CD47-E9AE-4BFF-A2E0-48E50AA3C29C",
+        "Root",
+        "Material"
       ],
       {
         "isExpanded" : true,
@@ -291,6 +299,16 @@
         "Root",
         "House1",
         "House1"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "7392CD47-E9AE-4BFF-A2E0-48E50AA3C29C",
+        "Root",
+        "Streetlamp",
+        "Cube"
       ],
       {
         "isExpanded" : true,
@@ -386,6 +404,18 @@
     "objectMetadataList" : [
       [
         "A2516ECF-E888-45C4-8776-0FFE7F4B3C04",
+        "root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
+  "AA9D8856-4626-4D6C-933E-820129D1BD32" : {
+    "objectMetadataList" : [
+      [
+        "AA9D8856-4626-4D6C-933E-820129D1BD32",
         "root"
       ],
       {
@@ -645,7 +675,25 @@
     "objectMetadataList" : [
       [
         "FB3E4274-D8ED-408B-8AD9-6A5190953094",
+        "Root",
+        "Cube"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "FB3E4274-D8ED-408B-8AD9-6A5190953094",
         "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "FB3E4274-D8ED-408B-8AD9-6A5190953094",
+        "Root",
+        "Fences"
       ],
       {
         "isExpanded" : true,
