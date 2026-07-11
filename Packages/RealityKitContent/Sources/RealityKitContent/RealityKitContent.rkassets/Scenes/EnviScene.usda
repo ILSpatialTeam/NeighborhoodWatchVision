@@ -11,6 +11,9 @@
 def Xform "Root"
 {
     reorder nameChildren = ["Gate", "Houses", "Fences", "Cube", "PosSatpam", "StreetLamp", "StreetLamp_1", "StreetLamp_2", "StreetLamp_3", "StreetLamp_4", "StreetLamps"]
+    float3 xformOp:translate = (8.074776, -1.7714013, -4.972353)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
     def "Gate" (
         active = true
         references = @../Assets/Gate.usda@
@@ -298,6 +301,32 @@ def Xform "Root"
             float3 xformOp:scale = (0.99999994, 0.99999994, 0.99999994)
             float3 xformOp:translate = (-6.2355566, 2.682209e-7, 11.375412)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+}
+
+def Cube "Cube_1" (
+    active = true
+    prepend apiSchemas = ["MaterialBindingAPI"]
+)
+{
+    rel material:binding = </Cube_1/DefaultMaterial>
+    double size = 0.2
+    quatf xformOp:orient = (1, 0, 0, 0)
+    float3 xformOp:scale = (1, 1, 1)
+    float3 xformOp:translate = (0, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+    def Material "DefaultMaterial"
+    {
+        token outputs:surface.connect = </Cube_1/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+        def Shader "DefaultSurfaceShader"
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            color3f inputs:diffuseColor = (1, 1, 1)
+            float inputs:roughness = 0.75
+            token outputs:surface
         }
     }
 }
