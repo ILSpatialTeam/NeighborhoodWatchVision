@@ -7,22 +7,30 @@
 
 import SwiftUI
 
-/// Maintains app-wide state
 @MainActor
 @Observable
 class AppModel {
-    let immersiveSpaceID = "ImmersiveSpace"
+    let immersiveSpaceID = "SecurityPostSpace" // Pastikan ID ini sesuai dengan di App.swift
+    
     enum ImmersiveSpaceState {
         case closed
         case inTransition
         case open
     }
     
+    // State flow game dari awal sampai akhir
+    enum GameFlowState {
+        case start
+        case story
+        case playing
+        case result(isWin: Bool)
+    }
+    
     var immersiveSpaceState = ImmersiveSpaceState.closed
+    var currentFlow: GameFlowState = .start // Default ke start screen
     
     var gameData: GameData? = nil
         
-    
     func loadGameData() {
         guard gameData == nil else { return }
         guard let url = Bundle.main.url(forResource: "Village", withExtension: "json") else {

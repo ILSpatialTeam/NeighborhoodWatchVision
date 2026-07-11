@@ -31,8 +31,9 @@ struct ImmersiveView: View {
                 content.add(encounterRoot)
                 setupSecurityDesk(in: encounterRoot)
                 
-                if let immersiveContentEntity = try? await Entity(named: "Immersive", in: realityKitContentBundle) {
-                    content.add(immersiveContentEntity)
+                
+                if let world = await SceneSpawner.spawnWorld(){
+                    content.add(world)
                 }
                 
                 if let encounters = appModel.gameData?.encounters, !encounters.isEmpty {
