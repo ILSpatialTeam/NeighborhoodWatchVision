@@ -1,0 +1,247 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (494.100.6)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    reorder nameChildren = ["Pos_Satpam", "Bench", "Table", "Lamp", "GreenButton", "RedButton", "PosSatpam"]
+    def "Pos_Satpam" (
+        active = true
+        references = @../Mesh/Pos_Satpam.usdc@
+    )
+    {
+        quatf xformOp:orient = (0.70710677, -0.70710677, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        over "Bench"
+        {
+            over "Mesh" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </Root/Bench> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+        }
+
+        over "Table"
+        {
+            over "Cube_013" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </Root/Table> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+        }
+
+        over "Bulb"
+        {
+            over "Icosphere" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </Root/Lamp> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+                float3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+            }
+        }
+
+        over "Cone_Light"
+        {
+            over "Cone" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </Root/PosSatpam> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+        }
+
+        over "Pos_Satpam"
+        {
+            over "Cube" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </Root/PosSatpam> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+        }
+
+        over "Button_Green"
+        {
+            over "export3dcoat_001" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </Root/GreenButton> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+        }
+
+        over "Button_Red"
+        {
+            over "export3dcoat" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </Root/RedButton> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+        }
+
+        over "Whiteboard"
+        {
+            over "Cube_010" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </Root/PosSatpam> (
+                    bindMaterialAs = "weakerThanDescendants"
+                )
+            }
+        }
+    }
+
+    def Material "Bench" (
+        references = @../Materials/PBR_Material.usda@</Root/UnlitMaterial>
+    )
+    {
+        asset inputs:BakedTexture = @../Texture/PosSatpam/Pos_Satpam_bench_TX_BaseColor.1001.png@ (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-690.8226, -17.561485)
+                    int stackingOrderInSubgraph = 16
+                }
+            }
+        )
+        token outputs:mtlx:surface
+        token outputs:realitykit:vertex
+        token outputs:surface.connect = </Root/Bench/UsdPreviewSurface.outputs:surface>
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (178.65804, 120.496086)
+        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 20
+
+        def Shader "UsdPreviewSurface" (
+            active = false
+        )
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            token outputs:surface
+        }
+
+        over "Image2D"
+        {
+            float2 ui:nodegraph:node:pos = (-512.4979, 200.79478)
+            int ui:nodegraph:node:stackingOrder = 14
+        }
+
+        over "UnlitSurface"
+        {
+            float2 ui:nodegraph:node:pos = (-130.54071, 313.41376)
+            int ui:nodegraph:node:stackingOrder = 18
+        }
+    }
+
+    def Material "Table" (
+        references = @../Materials/PBR_Material.usda@</Root/UnlitMaterial>
+    )
+    {
+        asset inputs:BakedTexture = @../Texture/PosSatpam/Pos_Satpam_Table_TX_BaseColor.1001.png@
+        token outputs:mtlx:surface
+        token outputs:realitykit:vertex
+        token outputs:surface.connect = </Root/Table/UsdPreviewSurface.outputs:surface>
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (387.85156, 17.480469)
+        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 14
+
+        def Shader "UsdPreviewSurface"
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            token outputs:surface
+        }
+    }
+
+    def Material "Lamp" (
+        references = @../Materials/PBR_Material.usda@</Root/UnlitMaterial>
+    )
+    {
+        token outputs:mtlx:surface
+        token outputs:realitykit:vertex
+        token outputs:surface.connect = </Root/Lamp/UsdPreviewSurface.outputs:surface>
+
+        def Shader "UsdPreviewSurface"
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            token outputs:surface
+        }
+    }
+
+    def Material "GreenButton" (
+        references = @../Materials/PBR_Material.usda@</Root/UnlitMaterial>
+    )
+    {
+        asset inputs:BakedTexture = @../Texture/PosSatpam/Pos_Satpam_Button_Green_TX_BaseColor.1001.png@
+        token outputs:mtlx:surface
+        token outputs:realitykit:vertex
+        token outputs:surface.connect = </Root/GreenButton/UsdPreviewSurface.outputs:surface>
+
+        def Shader "UsdPreviewSurface"
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            token outputs:surface
+        }
+    }
+
+    def Material "RedButton" (
+        references = @../Materials/PBR_Material.usda@</Root/UnlitMaterial>
+    )
+    {
+        asset inputs:BakedTexture = @../Texture/PosSatpam/Pos_Satpam_Button_Red_TX_BaseColor.1001.png@
+        token outputs:mtlx:surface.connect = </Root/RedButton/UnlitSurface.outputs:out>
+        token outputs:realitykit:vertex
+        token outputs:surface.connect = </Root/RedButton/UsdPreviewSurface.outputs:surface>
+        float2 ui:nodegraph:node:pos = (4, 4)
+        int ui:nodegraph:node:stackingOrder = 1
+
+        def Shader "UsdPreviewSurface"
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            token outputs:surface
+        }
+    }
+
+    def Material "PosSatpam" (
+        references = @../Materials/PBR_Material.usda@</Root/UnlitMaterial>
+    )
+    {
+        asset inputs:BakedTexture = @../Texture/PosSatpam/Pos_Satpam_Kamling_TX_BaseColor.1001.png@
+        token outputs:mtlx:surface.connect = </Root/PosSatpam/UnlitSurface.outputs:out>
+        token outputs:realitykit:vertex
+        token outputs:surface.connect = </Root/PosSatpam/UsdPreviewSurface.outputs:surface>
+        float2 ui:nodegraph:node:pos = (24, 24)
+        int ui:nodegraph:node:stackingOrder = 2
+
+        def Shader "UsdPreviewSurface"
+        {
+            uniform token info:id = "UsdPreviewSurface"
+            token outputs:surface
+        }
+    }
+}
+

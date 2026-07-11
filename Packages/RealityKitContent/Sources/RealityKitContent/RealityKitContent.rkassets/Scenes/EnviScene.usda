@@ -180,5 +180,117 @@ def Xform "Root"
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
     }
+
+    def Cube "Cube" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Root/Cube/DefaultMaterial>
+        double size = 0.2
+        float3 xformOp:scale = (1000, 0.1, 1000)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Material "DefaultMaterial"
+        {
+            token outputs:mtlx:surface
+            token outputs:realitykit:vertex
+            prepend token outputs:surface.connect = </Root/Cube/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+            def Shader "DefaultSurfaceShader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (0.14608246, 0.26652345, 0.11780816) (
+                    colorSpace = "srgb_displayp3"
+                )
+                float inputs:roughness = 1
+                token outputs:surface
+            }
+        }
+    }
+
+    def "PosSatpam" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (0, 1.5707963, 0)
+        }
+        prepend references = @../Assets/PosSatpam.usda@
+    )
+    {
+        quatf xformOp:orient = (0.6976247, 0, 0.7164633, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-7.499116, -1.3411045e-7, 4.744376)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "StreetLamp" (
+        active = true
+        prepend references = @../Assets/StreetLamp.usda@
+    )
+    {
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (6.9196606, 0, 11.37434)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "StreetLamp_1" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (0, 1.5707963, 0)
+        }
+        prepend references = @../Assets/StreetLamp.usda@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (0.7125324, 0, 0.7016392, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-4.7153373, 0, 1.460331)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "StreetLamp_2" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (0, 1.5707963, 0)
+        }
+        prepend references = @../Assets/StreetLamp.usda@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (40, 40)
+        int ui:nodegraph:node:stackingOrder = 2
+        quatf xformOp:orient = (0.7125324, 0, 0.7016392, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (4.8325744, -4.4703484e-8, 1.6074295)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "StreetLamp_3" (
+        active = true
+        prepend references = @../Assets/StreetLamp.usda@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (6.9196606, 0, 18.949722)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "StreetLamp_4" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (0, -3.1411288, 0)
+        }
+        prepend references = @../Assets/StreetLamp.usda@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (0.00023181835, 0, -1, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-6.2355566, 2.682209e-7, 11.375412)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
 }
 
