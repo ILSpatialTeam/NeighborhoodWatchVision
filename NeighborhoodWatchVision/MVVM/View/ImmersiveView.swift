@@ -30,13 +30,13 @@ struct ImmersiveView: View {
             
             content.add(viewModel.encounterRoot)
             
+            if let encounters = appModel.gameData?.encounters, !encounters.isEmpty {
+                viewModel.startGame(with: encounters)
+            }
+            
             if let world = await SceneSpawner.spawnWorld() {
                 viewModel.worldRoot = world
                 content.add(world)
-            }
-            
-            if let encounters = appModel.gameData?.encounters, !encounters.isEmpty {
-                viewModel.startGame(with: encounters)
             }
             
             let headAnchor = AnchorEntity(.head)

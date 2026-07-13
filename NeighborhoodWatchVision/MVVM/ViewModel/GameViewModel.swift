@@ -14,31 +14,61 @@ import Foundation
 @Observable
 class GameViewModel {
     var encounterRoot = Entity()
-    var worldRoot: Entity?
-    var currentEncounterIndex = 0
-    var gameState: GameState = .playing
-    
-    private var encounters: [EncounterData] = []
-    
-    func startGame(with data: [EncounterData]) {
-        self.encounters = data.shuffled()
-        self.currentEncounterIndex = 0
-        self.gameState = .playing
-        encounterRoot.children.removeAll()
+        var worldRoot: Entity?
+        var currentEncounterIndex = 0
+        var gameState: GameState = .playing
         
-        if !encounters.isEmpty {
-            spawnEncounter(data: encounters[currentEncounterIndex])
-        }
-    }
-    
-    // Di dalam GameViewModel.swift
-        func restartGame() {
-            print("Merestart Game...")
-            
-            // 1. Bersihkan sisa NPC yang mungkin masih ada
+        private var encounters: [EncounterData] = []
+        
+        // 🌟 Dictionary untuk menyimpan template/cache 3D model berdasarkan nama file RCP
+        private var characterCache: [String: Entity] = [:]
+        
+        func startGame(with data: [EncounterData]) {
+            self.encounters = data.shuffled()
+            self.currentEncounterIndex = 0
+            self.gameState = .playing
             encounterRoot.children.removeAll()
             
-            // 2. Tutup gerbang (jika tadi game over saat gerbang masih terbuka)
+            // 🌟 Load semua karakter yang ada di list 'encounters' ke dalam memori
+            Task {
+                await preloadCharacters(from: self.encounters)
+                
+                // Setelah preload selesai, barulah mulai spawn pertama
+                if !self.encounters.isEmpty {
+                    self.spawnEncounter(data: self.encounters[self.currentEncounterIndex])
+                }
+            }
+        }
+    
+    private func preloadCharacters(from dataList: [EncounterData]) async {
+            print("Mulai memuat (preload) karakter 3D...")
+            for data in dataList {
+                // Asumsi: Kita menggunakan nama scenarioName, encounterID, atau elemen pertama spawnVisuals
+                // Pastikan string ini cocok persis dengan nama Scene di Reality Composer Pro
+                let modelName = data.encounterID // atau data.spawnVisuals.first ?? "Assets/Fatih"
+                
+                // Cek apakah sudah pernah di-load
+                if characterCache[modelName] == nil {
+                    do {
+                        // Load dari RCP bundle (Pastikan path-nya sesuai, misalnya "Assets/NamaID")
+                        let templateEntity = try await Entity(named: "Assets/\(modelName)", in: realityKitContentBundle)
+                        
+                        // Simpan ke cache
+                        characterCache[modelName] = templateEntity
+                        print("✅ Berhasil memuat karakter: \(modelName)")
+                    } catch {
+                        print("❌ Gagal memuat karakter \(modelName): \(error)")
+                    }
+                }
+            }
+            print("Preload selesai.")
+        }
+    
+    func restartGame() {
+            print("Merestart Game...")
+            
+            encounterRoot.children.removeAll()
+            
             if let world = worldRoot,
                let leftGate = world.findEntity(named: "Left_Gate"),
                var leftGateComp = leftGate.components[GateComponent.self],
@@ -55,62 +85,47 @@ class GameViewModel {
                 rightGate.components.set(rightGateComp)
             }
             
-            // 3. Mulai ulang
+            // Mulai ulang, tidak perlu preload ulang karena cache sudah terisi
             startGame(with: self.encounters)
         }
     
     // MARK: - Input Pemain
     func handleButtonPress(entityName: String) {
-        print("Button pressed: \(entityName)")
-        for npc in encounterRoot.children {
-            if var encounterComp = npc.components[ActiveEncounterComponent.self],
-               encounterComp.state == .interrogated {
-                
-                print("Ada yg lagi di-interogasi nih")
-                let isAnomaly = encounterComp.data.llmPromptContext.roleType == .anomaly
-                
-                if entityName == "GateButton" || entityName == "export3dcoat_001" {
-                    print("GateButton diklik nih")
+            // ... (Kode sama persis seperti sebelumnya) ...
+            print("Button pressed: \(entityName)")
+            for npc in encounterRoot.children {
+                if var encounterComp = npc.components[ActiveEncounterComponent.self],
+                   encounterComp.state == .interrogated {
                     
-                    encounterComp.state = .entered
-                    npc.components.set(encounterComp)
+                    let isAnomaly = encounterComp.data.llmPromptContext.roleType == .anomaly
                     
-                    notifyTimeline("Pass")
-                    animateGates()
-                    
-                    if isAnomaly {
-                        print("GAME OVER! Anomali berhasil masuk.")
-                        gameState = .lost(reason: "Kamu membiarkan anomali masuk ke dalam perumahan!")
-                        return
+                    if entityName == "GateButton" || entityName == "export3dcoat_001" {
+                        encounterComp.state = .entered
+                        npc.components.set(encounterComp)
+                        
+                        notifyTimeline("Pass")
+                        animateGates()
+                        
+                        if isAnomaly {
+                            gameState = .lost(reason: "Kamu membiarkan anomali masuk ke dalam perumahan!")
+                            return
+                        }
                     }
-                    print("Warga valid. Gerbang dibuka.")
-                    
-                }
-                else if entityName == "AlarmButton" || entityName == "export3dcoat" {
-                    print("AlarmButton diklik nih")
-
-                    if !isAnomaly {
-                        print("Peringatan: Kamu mengusir warga asli!")
-                    } else {
-                        print("Kerja bagus! Anomali berhasil diusir.")
+                    else if entityName == "AlarmButton" || entityName == "export3dcoat" {
+                        notifyTimeline("Out")
+                        encounterComp.state = .dismissed
+                        npc.components.set(encounterComp)
                     }
                     
-                    notifyTimeline("Out")
-                    
-                    encounterComp.state = .dismissed
-                    npc.components.set(encounterComp)
+                    Task {
+                        try? await Task.sleep(nanoseconds: 2_000_000_000)
+                        npc.removeFromParent()
+                        spawnNextEncounter()
+                    }
+                    break
                 }
-                
-                Task {
-                    try? await Task.sleep(nanoseconds: 2_000_000_000)
-                    npc.removeFromParent()
-                    spawnNextEncounter()
-                }
-                
-                break
             }
         }
-    }
     
     private func animateGates() {
         guard let world = worldRoot,
@@ -166,19 +181,26 @@ class GameViewModel {
     }
     
     private func spawnEncounter(data: EncounterData) {
-        Task {
-            do {
-                let npcEntity = try await Entity(named: "Assets/Fatih", in: realityKitContentBundle)
-                npcEntity.components.set(ActiveEncounterComponent(
-                    data: data,
-                    state: .walkingToPost
-                ))
-                encounterRoot.addChild(npcEntity)
-            } catch {
-                print("Gagal memuat model dari RCP: \(error)")
+            let modelName = data.encounterID // Gunakan identifier yang sama dengan preloader
+            
+            // 🌟 Ambil dari cache, lalu "Clone" (buat salinannya)
+            guard let templateEntity = characterCache[modelName] else {
+                print("⚠️ Karakter \(modelName) tidak ditemukan di cache. Gagal men-spawn.")
+                return
             }
+            
+            // Gunakan fungsi .clone(recursive: true) agar entity asli (template) tidak rusak atau hilang saat scene dihapus
+            let npcEntity = templateEntity.clone(recursive: true)
+            
+            // Set state awal
+            npcEntity.components.set(ActiveEncounterComponent(
+                data: data,
+                state: .walkingToPost
+            ))
+            
+            // Tambahkan ke root
+            encounterRoot.addChild(npcEntity)
         }
-    }
     
     func notifyTimeline(_ identifier: String) {
         guard let scene = encounterRoot.scene else {
