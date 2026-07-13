@@ -131,7 +131,14 @@
   },
   "262E7451-5588-4B8A-B057-A20B16538E66" : {
     "objectMetadataList" : [
-
+      [
+        "262E7451-5588-4B8A-B057-A20B16538E66",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
     ]
   },
   "3B86FAFA-86E9-4E44-84DB-4F9A1EF629C1" : {
@@ -203,7 +210,28 @@
       },
       [
         "3D9811AB-4C6B-4602-87A0-81868911537E",
-        "Root"
+        "Root",
+        "Pass",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "3D9811AB-4C6B-4602-87A0-81868911537E",
+        "Root",
+        "Out",
+        "Track"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "3D9811AB-4C6B-4602-87A0-81868911537E",
+        "Root",
+        "Out"
       ],
       {
         "isExpanded" : true,
@@ -232,7 +260,24 @@
         "3D9811AB-4C6B-4602-87A0-81868911537E",
         "Root",
         "WalkIn",
-        "Track3"
+        "Track2"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "3D9811AB-4C6B-4602-87A0-81868911537E",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "3D9811AB-4C6B-4602-87A0-81868911537E",
+        "Root",
+        "Pass"
       ],
       {
         "isExpanded" : true,
@@ -242,6 +287,16 @@
         "3D9811AB-4C6B-4602-87A0-81868911537E",
         "Root",
         "WalkIn",
+        "Track3"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "3D9811AB-4C6B-4602-87A0-81868911537E",
+        "Root",
+        "Pass",
         "Track2"
       ],
       {
@@ -865,24 +920,6 @@
       [
         "FB3E4274-D8ED-408B-8AD9-6A5190953094",
         "Root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "FB3E4274-D8ED-408B-8AD9-6A5190953094",
-        "Root",
-        "Fences"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "FB3E4274-D8ED-408B-8AD9-6A5190953094",
-        "Root",
-        "StreetLamps"
       ],
       {
         "isExpanded" : true,

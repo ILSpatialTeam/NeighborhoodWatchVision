@@ -10,6 +10,7 @@
 
 def Xform "Root"
 {
+    reorder nameChildren = ["Pass", "Out"]
     def "Fatih_Idle" (
         active = true
         customData = {
@@ -42,6 +43,7 @@ def Xform "Root"
             rel behaviors = [
                 </Root/Fatih_Idle/OnAddedToScene>,
                 </Root/Fatih_Idle/OnNotification>,
+                </Root/Fatih_Idle/OnNotification2>,
             ]
             uniform token info:id = "RCP.BehaviorsContainer"
         }
@@ -79,13 +81,40 @@ def Xform "Root"
             def Preliminary_Trigger "Trigger"
             {
                 rel affectedObjects = </Root/Fatih_Idle>
+                string identifier = "Pass"
                 token info:id = "Notification"
             }
 
             def Preliminary_Action "Action"
             {
-                rel affectedObjects = None
+                rel affectedObjects = </Root>
+                rel animationLibraryKey = </Root/Pass>
                 rel animationLibraryKeyOverrideKey = </Root/Fatih_Idle/OnNotification/Trigger>
+                token info:id = "PlayTimeline"
+                int loops = 0
+                int performCount = 1
+                token type = "serial"
+            }
+        }
+
+        def Preliminary_Behavior "OnNotification2"
+        {
+            rel actions = </Root/Fatih_Idle/OnNotification2/Action>
+            uniform bool exclusive
+            rel triggers = </Root/Fatih_Idle/OnNotification2/Trigger>
+
+            def Preliminary_Trigger "Trigger"
+            {
+                rel affectedObjects = </Root/Fatih_Idle>
+                string identifier = "Out"
+                token info:id = "Notification"
+            }
+
+            def Preliminary_Action "Action"
+            {
+                rel affectedObjects = </Root>
+                rel animationLibraryKey = </Root/Out>
+                rel animationLibraryKeyOverrideKey = </Root/Fatih_Idle/OnNotification2/Trigger>
                 token info:id = "PlayTimeline"
                 int loops = 0
                 int performCount = 1
@@ -208,6 +237,241 @@ def Xform "Root"
                 }
 
                 def RealityKitStruct "timingFunction"
+                {
+                }
+            }
+        }
+    }
+
+    def RealityKitTimeline "Pass"
+    {
+        reorder nameChildren = ["Track", "Track2"]
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Transform_To"
+            {
+                string actionKind = "moveTo"
+                int blendLayer = 300
+                double duration = 0.05075203859110872
+                uniform token info:id = "5F8AE900-8A46-44E2-81DC-E7A89620352C"
+                float3 position = (4.5, 0.000001437962, 0)
+                quatf rotation = (-0.49999982, 0.50000024, 0.49999982, 0.5000002)
+                float3 scale = (1, 0.99999994, 0.99999994)
+                double startTime = 0
+                rel target = </Root/Fatih_Idle>
+
+                def RealityKitStruct "transformMode"
+                {
+                    rel referenceEntity = </Root>
+                    token type = "parent"
+                }
+
+                def RealityKitStruct "timingFunction"
+                {
+                    token type = "cubicBezier"
+                }
+            }
+
+            def RealityKitAction "Transform_To2"
+            {
+                string actionKind = "moveTo"
+                int blendLayer = 300
+                double duration = 0.1
+                uniform token info:id = "5F8AE900-8A46-44E2-81DC-E7A89620352C"
+                float3 position = (4.5, 0.000001437962, 0)
+                quatf rotation = (3.090861e-8, -3.0908627e-8, 0.70710653, 0.707107)
+                float3 scale = (1, 0.99999994, 0.99999994)
+                double startTime = 0.05075203869110873
+                rel target = </Root/Fatih_Idle>
+                float2 ui:nodegraph:node:pos = (20, 20)
+                int ui:nodegraph:node:stackingOrder = 1
+
+                def RealityKitStruct "transformMode"
+                {
+                    rel referenceEntity = </Root>
+                    token type = "parent"
+                }
+
+                def RealityKitStruct "timingFunction"
+                {
+                    token type = "cubicBezier"
+                }
+            }
+
+            def RealityKitAction "Transform_To22"
+            {
+                string actionKind = "moveTo"
+                int blendLayer = 300
+                double duration = 10
+                uniform token info:id = "5F8AE900-8A46-44E2-81DC-E7A89620352C"
+                float3 position = (4.5, 0.000001437962, -14.814607)
+                quatf rotation = (3.090861e-8, -3.0908627e-8, 0.70710653, 0.707107)
+                float3 scale = (1, 0.99999994, 0.99999994)
+                double startTime = 0.1507520387911088
+                rel target = </Root/Fatih_Idle>
+                float2 ui:nodegraph:node:pos = (40, 40)
+                int ui:nodegraph:node:stackingOrder = 2
+
+                def RealityKitStruct "transformMode"
+                {
+                    rel referenceEntity = </Root>
+                    token type = "parent"
+                }
+
+                def RealityKitStruct "timingFunction"
+                {
+                    token type = "cubicBezier"
+                }
+            }
+        }
+
+        def RealityKitTrack "Track2"
+        {
+            def RealityKitAction "Animation"
+            {
+                string actionKind = "animation"
+                string animation = "Fatih_Walk"
+                int blendLayer = 500
+                double duration = 2.6666667461395264
+                uniform token info:id = "7D47E3AD-E144-4EB5-A9FE-7EF16BCECBDC"
+                double loopCount = 0
+                bool separateAnimatedValue = 1
+                double startTime = 0.151
+                rel target = </Root/Fatih_Idle>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+    }
+
+    def RealityKitTimeline "Out"
+    {
+        reorder nameChildren = ["Track", "Track3", "Track2"]
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Transform_To"
+            {
+                string actionKind = "moveTo"
+                int blendLayer = 300
+                double duration = 0.05075203859110872
+                uniform token info:id = "5F8AE900-8A46-44E2-81DC-E7A89620352C"
+                float3 position = (4.5, 0.000001437962, 0)
+                quatf rotation = (-0.49999982, 0.50000024, 0.49999982, 0.5000002)
+                float3 scale = (1, 0.99999994, 0.99999994)
+                double startTime = 0
+                rel target = </Root/Fatih_Idle>
+
+                def RealityKitStruct "transformMode"
+                {
+                    rel referenceEntity = </Root>
+                    token type = "parent"
+                }
+
+                def RealityKitStruct "timingFunction"
+                {
+                    token type = "cubicBezier"
+                }
+            }
+
+            def RealityKitAction "Transform_To2"
+            {
+                string actionKind = "moveTo"
+                int blendLayer = 300
+                double duration = 0.1
+                uniform token info:id = "5F8AE900-8A46-44E2-81DC-E7A89620352C"
+                float3 position = (4.5, 0.000001437962, 0)
+                quatf rotation = (0.7071065, -0.70710707, 5.284102e-9, -5.2840967e-9)
+                float3 scale = (1, 0.99999994, 0.99999994)
+                double startTime = 0.05075203869110873
+                rel target = </Root/Fatih_Idle>
+                float2 ui:nodegraph:node:pos = (20, 20)
+                int ui:nodegraph:node:stackingOrder = 1
+
+                def RealityKitStruct "transformMode"
+                {
+                    rel referenceEntity = </Root>
+                    token type = "parent"
+                }
+
+                def RealityKitStruct "timingFunction"
+                {
+                    token type = "cubicBezier"
+                }
+            }
+
+            def RealityKitAction "Transform_To2_1"
+            {
+                string actionKind = "moveTo"
+                int blendLayer = 300
+                double duration = 0.1
+                uniform token info:id = "5F8AE900-8A46-44E2-81DC-E7A89620352C"
+                float3 position = (4.5, 0.000001437962, 0)
+                quatf rotation = (0.7071065, -0.70710707, 5.284102e-9, -5.2840967e-9)
+                float3 scale = (1, 0.99999994, 0.99999994)
+                double startTime = 0.05075203869110873
+                rel target = </Root/Fatih_Idle>
+                float2 ui:nodegraph:node:pos = (40, 40)
+                int ui:nodegraph:node:stackingOrder = 2
+
+                def RealityKitStruct "transformMode"
+                {
+                    rel referenceEntity = </Root>
+                    token type = "parent"
+                }
+
+                def RealityKitStruct "timingFunction"
+                {
+                    token type = "cubicBezier"
+                }
+            }
+
+            def RealityKitAction "Transform_To2_12"
+            {
+                string actionKind = "moveTo"
+                int blendLayer = 300
+                double duration = 10
+                uniform token info:id = "5F8AE900-8A46-44E2-81DC-E7A89620352C"
+                float3 position = (4.5, 0.000001437962, 19.692387)
+                quatf rotation = (0.7071065, -0.70710707, 5.284102e-9, -5.2840967e-9)
+                float3 scale = (1, 0.99999994, 0.99999994)
+                double startTime = 0.15075203879110874
+                rel target = </Root/Fatih_Idle>
+                float2 ui:nodegraph:node:pos = (60, 60)
+                int ui:nodegraph:node:stackingOrder = 3
+
+                def RealityKitStruct "transformMode"
+                {
+                    rel referenceEntity = </Root>
+                    token type = "parent"
+                }
+
+                def RealityKitStruct "timingFunction"
+                {
+                    token type = "cubicBezier"
+                }
+            }
+        }
+
+        def RealityKitTrack "Track2"
+        {
+            def RealityKitAction "Animation"
+            {
+                string actionKind = "animation"
+                string animation = "Fatih_Walk"
+                int blendLayer = 500
+                double duration = 2.6666667461395264
+                uniform token info:id = "7D47E3AD-E144-4EB5-A9FE-7EF16BCECBDC"
+                double loopCount = 0
+                bool separateAnimatedValue = 1
+                double startTime = 0.151
+                rel target = </Root/Fatih_Idle>
+
+                def RealityKitStruct "handoffType"
                 {
                 }
             }
