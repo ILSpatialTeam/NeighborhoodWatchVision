@@ -132,7 +132,7 @@
   ],
   "encounters": [
       {
-        "encounterID": "Anomaly Sandy",
+        "encounterID": "Fatih",
         "scenarioName": "Anomaly Sandy (Fake Address)",
         "spawnVisuals": [
           "Dressed neatly like a normal elder, but something is off",
@@ -156,7 +156,7 @@
         "idImageURL": ""
       },
       {
-        "encounterID": "Anomaly Alfa",
+        "encounterID": "Fatih",
         "scenarioName": "Anomaly Alfa (Wrong Parking Status)",
         "spawnVisuals": [
           "Faded government uniform",
@@ -180,7 +180,7 @@
         "idImageURL": ""
       },
       {
-        "encounterID": "Anomaly Handaru",
+        "encounterID": "Fatih",
         "scenarioName": "Anomaly Handaru (Spatial Memory Failure)",
         "spawnVisuals": [
           "Bright neon hoodie",
@@ -204,7 +204,7 @@
         "idImageURL": ""
       },
       {
-        "encounterID": "Anomaly Fateeh",
+        "encounterID": "Fatih",
         "scenarioName": "Anomaly Fatih (Swapped Block Address)",
         "spawnVisuals": [
           "Neat business suit",
@@ -251,7 +251,7 @@
         "idImageURL": ""
       },
       {
-        "encounterID": "Sandy",
+        "encounterID": "Fatih",
         "scenarioName": "Sandy Rezeky (Real)",
         "spawnVisuals": [
           "A serene portrait of an Indonesian elder wearing a neat white koko shirt and a black peci, holding a digital tasbih on his finger, smiling warmly"
@@ -274,7 +274,7 @@
         "idImageURL": ""
       },
       {
-        "encounterID": "Handaru",
+        "encounterID": "Fatih",
         "scenarioName": "Handaru (Real)",
         "spawnVisuals": [
           "A hyper-energetic portrait of a street influencer wearing a bright neon hoodie, holding a vlog camera on a selfie stick pointing at his own face, fish-eye lens effect"
@@ -297,7 +297,7 @@
         "idImageURL": ""
       },
       {
-        "encounterID": "Alfa",
+        "encounterID": "Fatih",
         "scenarioName": "Alfa (Real)",
         "spawnVisuals": [
           "A portrait of a lazy government IT staff wearing a faded blue uniform, looking sleepy, wearing a necklace with an 8GB Kingston flash drive pendant"

@@ -20,7 +20,6 @@ class GameViewModel {
         
         private var encounters: [EncounterData] = []
         
-        // 🌟 Dictionary untuk menyimpan template/cache 3D model berdasarkan nama file RCP
         private var characterCache: [String: Entity] = [:]
         
         func startGame(with data: [EncounterData]) {
@@ -28,12 +27,8 @@ class GameViewModel {
             self.currentEncounterIndex = 0
             self.gameState = .playing
             encounterRoot.children.removeAll()
-            
-            // 🌟 Load semua karakter yang ada di list 'encounters' ke dalam memori
             Task {
                 await preloadCharacters(from: self.encounters)
-                
-                // Setelah preload selesai, barulah mulai spawn pertama
                 if !self.encounters.isEmpty {
                     self.spawnEncounter(data: self.encounters[self.currentEncounterIndex])
                 }
@@ -43,17 +38,10 @@ class GameViewModel {
     private func preloadCharacters(from dataList: [EncounterData]) async {
             print("Mulai memuat (preload) karakter 3D...")
             for data in dataList {
-                // Asumsi: Kita menggunakan nama scenarioName, encounterID, atau elemen pertama spawnVisuals
-                // Pastikan string ini cocok persis dengan nama Scene di Reality Composer Pro
-                let modelName = data.encounterID // atau data.spawnVisuals.first ?? "Assets/Fatih"
-                
-                // Cek apakah sudah pernah di-load
+                let modelName = data.encounterID
                 if characterCache[modelName] == nil {
                     do {
-                        // Load dari RCP bundle (Pastikan path-nya sesuai, misalnya "Assets/NamaID")
                         let templateEntity = try await Entity(named: "Assets/\(modelName)", in: realityKitContentBundle)
-                        
-                        // Simpan ke cache
                         characterCache[modelName] = templateEntity
                         print("✅ Berhasil memuat karakter: \(modelName)")
                     } catch {
@@ -84,14 +72,11 @@ class GameViewModel {
                 leftGate.components.set(leftGateComp)
                 rightGate.components.set(rightGateComp)
             }
-            
-            // Mulai ulang, tidak perlu preload ulang karena cache sudah terisi
             startGame(with: self.encounters)
         }
     
     // MARK: - Input Pemain
     func handleButtonPress(entityName: String) {
-            // ... (Kode sama persis seperti sebelumnya) ...
             print("Button pressed: \(entityName)")
             for npc in encounterRoot.children {
                 if var encounterComp = npc.components[ActiveEncounterComponent.self],
@@ -181,24 +166,19 @@ class GameViewModel {
     }
     
     private func spawnEncounter(data: EncounterData) {
-            let modelName = data.encounterID // Gunakan identifier yang sama dengan preloader
-            
-            // 🌟 Ambil dari cache, lalu "Clone" (buat salinannya)
+            let modelName = data.encounterID
             guard let templateEntity = characterCache[modelName] else {
                 print("⚠️ Karakter \(modelName) tidak ditemukan di cache. Gagal men-spawn.")
                 return
             }
             
-            // Gunakan fungsi .clone(recursive: true) agar entity asli (template) tidak rusak atau hilang saat scene dihapus
             let npcEntity = templateEntity.clone(recursive: true)
             
-            // Set state awal
             npcEntity.components.set(ActiveEncounterComponent(
                 data: data,
                 state: .walkingToPost
             ))
             
-            // Tambahkan ke root
             encounterRoot.addChild(npcEntity)
         }
     
