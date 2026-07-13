@@ -70,11 +70,11 @@ class GameViewModel {
                     npc.components.set(encounterComp)
                 }
                 Task {
-                    while npc.scene != nil {
-                        try? await Task.sleep(nanoseconds: 100_000_000)
-                    }
+                    try? await Task.sleep(nanoseconds: 2_000_000_000)
+                    npc.removeFromParent()
                     spawnNextEncounter()
                 }
+                
                 break
             }
         }
@@ -86,7 +86,7 @@ class GameViewModel {
                encounterComp.state == .walkingToPost {
                 encounterComp.state = .interrogated
                 npc.components.set(encounterComp)
-                print("State NPC sekarang: Interrogated. Menunggu tombol ditekan...")
+                print("State NPC \(encounterComp.data.scenarioName) sekarang: Interrogated. Menunggu tombol ditekan...")
                 break
             }
         }

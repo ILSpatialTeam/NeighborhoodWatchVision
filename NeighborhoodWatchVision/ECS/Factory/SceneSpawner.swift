@@ -13,14 +13,10 @@ public struct SceneSpawner {
     public static func spawnWorld(name sceneName: String = "Scenes/EnviScene") async -> Entity? {
         do {
             let scene = try await Entity(named: sceneName, in: realityKitContentBundle)
-            let angle = Float.pi / 2
-            scene.orientation = simd_quatf(angle: angle, axis: SIMD3<Float>(0, 1, 0))
-            scene.position = SIMD3<Float>(0, 0, 0)
-            
             print("[WorldSpawner] Sukses memuat dunia: \(sceneName)")
             
             if let redButton = scene.findEntity(named: "Button_Red"){
-                print("Button merah ada! Setup sebagai Alarm.")
+//                print("Button merah ada! Setup sebagai Alarm.")
                 redButton.name = "AlarmButton"
                 redButton.components.set(InputTargetComponent())
                 redButton.generateCollisionShapes(recursive: true)
@@ -28,7 +24,7 @@ public struct SceneSpawner {
             }
             
             if let greenButton = scene.findEntity(named: "Button_Green"){
-                print("Button hijau ada! Setup sebagai Gate.")
+//                print("Button hijau ada! Setup sebagai Gate.")
                 greenButton.name = "GateButton"
                 greenButton.components.set(InputTargetComponent())
                 greenButton.generateCollisionShapes(recursive: true)
@@ -36,11 +32,11 @@ public struct SceneSpawner {
             }
             
             if let rightGate = scene.findEntity(named: "Right_Gate"){
-                print("Right gate ada!")
+//                print("Right gate ada!")
             }
             
             if let leftGate = scene.findEntity(named: "Left_Gate"){
-                print("Left gate ada!")
+//                print("Left gate ada!")
             }
             
             return scene
