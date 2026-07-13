@@ -31,12 +31,22 @@ public struct SceneSpawner {
                 greenButton.components.set(HoverEffectComponent())
             }
             
-            if let rightGate = scene.findEntity(named: "Right_Gate"){
-//                print("Right gate ada!")
+            // Di dalam SceneSpawner.swift
+
+            if let rightGate = scene.findEntity(named: "Right_Gate") {
+                // Right gate rotasi -90 derajat (.pi / 2) pada sumbu Y
+                rightGate.components.set(GateComponent(
+                    closedRotation: rightGate.transform.rotation,
+                    openAngle: -.pi / 2
+                ))
             }
-            
-            if let leftGate = scene.findEntity(named: "Left_Gate"){
-//                print("Left gate ada!")
+
+            if let leftGate = scene.findEntity(named: "Left_Gate") {
+                // Left gate rotasi 90 derajat (.pi / 2) pada sumbu Y
+                leftGate.components.set(GateComponent(
+                    closedRotation: leftGate.transform.rotation,
+                    openAngle: .pi / 2
+                ))
             }
             
             return scene

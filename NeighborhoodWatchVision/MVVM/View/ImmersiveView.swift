@@ -24,10 +24,13 @@ struct ImmersiveView: View {
     var body: some View {
         RealityView { content, attachments in
             ActiveEncounterComponent.registerComponent()
+            GateComponent.registerComponent()
+            GateSystem.registerSystem()
             
             content.add(viewModel.encounterRoot)
             
             if let world = await SceneSpawner.spawnWorld() {
+                viewModel.worldRoot = world
                 content.add(world)
             }
             

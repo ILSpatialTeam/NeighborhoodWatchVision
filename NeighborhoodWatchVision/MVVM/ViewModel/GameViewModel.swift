@@ -14,6 +14,7 @@ import Foundation
 @Observable
 class GameViewModel {
     var encounterRoot = Entity()
+    var worldRoot: Entity?
     var currentEncounterIndex = 0
     var gameState: GameState = .playing
     
@@ -76,6 +77,39 @@ class GameViewModel {
                 }
                 
                 break
+            }
+        }
+    }
+    
+    private func animateGates() {
+        guard let world = worldRoot,
+              let rightGate = world.findEntity(named: "Right_Gate"),
+              var rightGateComp = rightGate.components[GateComponent.self],
+              let leftGate = world.findEntity(named: "Left_Gate"),
+              var leftGateComp = leftGate.components[GateComponent.self] else {
+            return
+        }
+        
+        // 1. Ubah state menjadi .opening. GateSystem akan otomatis membuat pintunya terbuka pelan-pelan.
+        leftGateComp.state = .opening
+        rightGateComp.state = .opening
+        
+        leftGate.components.set(leftGateComp)
+        rightGate.components.set(rightGateComp)
+        
+        // 2. Tunggu 3 detik, lalu ubah state menjadi .closing.
+        Task {
+            try? await Task.sleep(nanoseconds: 3_000_000_000) // 3 Detik
+            
+            // Ambil ulang komponen terbaru (karena statenya di-update oleh System menjadi .open)
+            if var currentLeftComp = leftGate.components[GateComponent.self],
+               var currentRightComp = rightGate.components[GateComponent.self] {
+                
+                currentLeftComp.state = .closing
+                currentRightComp.state = .closing
+                
+                leftGate.components.set(currentLeftComp)
+                rightGate.components.set(currentRightComp)
             }
         }
     }
