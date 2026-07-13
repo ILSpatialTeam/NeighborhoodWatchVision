@@ -13,29 +13,23 @@ public struct SceneSpawner {
     public static func spawnWorld(name sceneName: String = "Scenes/EnviScene") async -> Entity? {
         do {
             let scene = try await Entity(named: sceneName, in: realityKitContentBundle)
-            
-            // 1. Putar scene 90 derajat di sumbu Y
-            // Float.pi / 2 adalah 90 derajat dalam radian.
-            // Jika arahnya terbalik, ubah menjadi -(Float.pi / 2)
             let angle = Float.pi / 2
             scene.orientation = simd_quatf(angle: angle, axis: SIMD3<Float>(0, 1, 0))
             scene.position = SIMD3<Float>(0, 0, 0)
             
-            print("[MedievalSceneSpawner] Sukses memuat dunia: \(sceneName)")
+            print("[WorldSpawner] Sukses memuat dunia: \(sceneName)")
             
-            // 2. Setup Red Button sebagai Alarm
             if let redButton = scene.findEntity(named: "Button_Red"){
                 print("Button merah ada! Setup sebagai Alarm.")
-                redButton.name = "AlarmButton" // Ubah nama agar match dengan handleButtonPress
+                redButton.name = "AlarmButton"
                 redButton.components.set(InputTargetComponent())
-                redButton.generateCollisionShapes(recursive: true) // Buat area tap otomatis
-                redButton.components.set(HoverEffectComponent())   // Efek menyala saat dilihat mata
+                redButton.generateCollisionShapes(recursive: true)
+                redButton.components.set(HoverEffectComponent())
             }
             
-            // 3. Setup Green Button sebagai Gate
             if let greenButton = scene.findEntity(named: "Button_Green"){
                 print("Button hijau ada! Setup sebagai Gate.")
-                greenButton.name = "GateButton" // Ubah nama agar match dengan handleButtonPress
+                greenButton.name = "GateButton"
                 greenButton.components.set(InputTargetComponent())
                 greenButton.generateCollisionShapes(recursive: true)
                 greenButton.components.set(HoverEffectComponent())
@@ -51,7 +45,7 @@ public struct SceneSpawner {
             
             return scene
         } catch {
-            print("[MedievalSceneSpawner] Gagal memuat scene '\(sceneName)': \(error)")
+            print("[WorldSpawner] Gagal memuat scene '\(sceneName)': \(error)")
             return nil
         }
     }

@@ -46,8 +46,7 @@ class GameViewModel {
                     encounterComp.state = .entered
                     npc.components.set(encounterComp)
                     
-                    // 🎬 Trigger Timeline Masuk
-                    notifyTimeline("AnimasiMasuk")
+                    notifyTimeline("Pass")
                     
                     if isAnomaly {
                         print("GAME OVER! Anomali berhasil masuk.")
@@ -58,21 +57,18 @@ class GameViewModel {
                     
                 } else if entityName == "export3dcoat" {
                     print("AlarmButton diklik nih")
-                    
+
                     if !isAnomaly {
                         print("Peringatan: Kamu mengusir warga asli!")
                     } else {
                         print("Kerja bagus! Anomali berhasil diusir.")
                     }
                     
+                    notifyTimeline("Out")
+                    
                     encounterComp.state = .dismissed
                     npc.components.set(encounterComp)
-                    
-                    // 🎬 Trigger Timeline Diusir
-                    notifyTimeline("AnimasiKeluar")
                 }
-                
-                // Tunggu sampai NPC dihapus oleh Action "Remove from Scene" di RCP
                 Task {
                     while npc.scene != nil {
                         try? await Task.sleep(nanoseconds: 100_000_000)
@@ -88,29 +84,12 @@ class GameViewModel {
         for npc in encounterRoot.children {
             if var encounterComp = npc.components[ActiveEncounterComponent.self],
                encounterComp.state == .walkingToPost {
-                
                 encounterComp.state = .interrogated
                 npc.components.set(encounterComp)
                 print("State NPC sekarang: Interrogated. Menunggu tombol ditekan...")
                 break
             }
         }
-    }
-    
-    func notifyTimeline(_ identifier: String) {
-        guard let scene = encounterRoot.scene else {
-            print("Scene belum tersedia!")
-            return
-        }
-        
-        NotificationCenter.default.post(
-            name: NSNotification.Name("RealityKit.NotificationTrigger"),
-            object: nil,
-            userInfo: [
-                "RealityKit.NotificationTrigger.Scene": scene,
-                "RealityKit.NotificationTrigger.Identifier": identifier
-            ]
-        )
     }
     
     private func spawnNextEncounter() {
@@ -138,5 +117,21 @@ class GameViewModel {
                 print("Gagal memuat model dari RCP: \(error)")
             }
         }
+    }
+    
+    func notifyTimeline(_ identifier: String) {
+        guard let scene = encounterRoot.scene else {
+            print("Scene belum tersedia!")
+            return
+        }
+            
+        NotificationCenter.default.post(
+            name: NSNotification.Name("RealityKit.NotificationTrigger"),
+            object: nil,
+            userInfo: [
+                "RealityKit.NotificationTrigger.Scene": scene,
+                "RealityKit.NotificationTrigger.Identifier": identifier
+            ]
+        )
     }
 }
