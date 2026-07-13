@@ -31,6 +31,36 @@ def Xform "Root"
                 uniform string name = "default subtree animation"
             }
         }
+
+        def RealityKitComponent "RCP_BehaviorsContainer"
+        {
+            rel behaviors = </Root/Fatih_Idle/OnAddedToScene>
+            uniform token info:id = "RCP.BehaviorsContainer"
+        }
+
+        def Preliminary_Behavior "OnAddedToScene"
+        {
+            rel actions = </Root/Fatih_Idle/OnAddedToScene/Action>
+            uniform bool exclusive
+            rel triggers = </Root/Fatih_Idle/OnAddedToScene/Trigger>
+
+            def Preliminary_Trigger "Trigger"
+            {
+                rel affectedObjects = </Root/Fatih_Idle>
+                token info:id = "SceneTransition"
+            }
+
+            def Preliminary_Action "Action"
+            {
+                rel affectedObjects = </Root>
+                rel animationLibraryKey = </Root/WalkIn>
+                rel animationLibraryKeyOverrideKey = </Root/Fatih_Idle/OnAddedToScene/Trigger>
+                token info:id = "PlayTimeline"
+                int loops = 0
+                int performCount = 1
+                token type = "serial"
+            }
+        }
     }
 
     def RealityKitComponent "AnimationLibrary"
