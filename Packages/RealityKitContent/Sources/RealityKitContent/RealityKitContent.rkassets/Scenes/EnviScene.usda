@@ -11,7 +11,7 @@
 def Xform "Root"
 {
     reorder nameChildren = ["Gate", "Houses", "Fences", "Cube", "PosSatpam", "StreetLamp", "StreetLamp_1", "StreetLamp_2", "StreetLamp_3", "StreetLamp_4", "StreetLamps"]
-    float3 xformOp:translate = (8.074776, -0.18828511, -4.972353)
+    float3 xformOp:translate = (7.154811, -0.18828511, -4.972353)
     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
     def "Gate" (
@@ -20,7 +20,7 @@ def Xform "Root"
     )
     {
         float3 xformOp:scale = (3.5, 3.5, 3.5)
-        float3 xformOp:translate = (0, 0, 0)
+        float3 xformOp:translate = (-0.91604996, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
         over "Gate"
@@ -125,7 +125,7 @@ def Xform "Root"
         {
             quatf xformOp:orient = (1, 0, 0, 0)
             float3 xformOp:scale = (1, 1, 1)
-            float3 xformOp:translate = (-8.561655, 0, 0)
+            float3 xformOp:translate = (-9.477705, 0, 0)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
 
@@ -138,7 +138,7 @@ def Xform "Root"
             int ui:nodegraph:node:stackingOrder = 1
             quatf xformOp:orient = (1, 0, 0, 0)
             float3 xformOp:scale = (1, 1, 1)
-            float3 xformOp:translate = (4.442206, 0, 0)
+            float3 xformOp:translate = (3.5261564, 0, 0)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
 
@@ -149,7 +149,7 @@ def Xform "Root"
         {
             quatf xformOp:orient = (1, 0, 0, 0)
             float3 xformOp:scale = (1, 1, 1)
-            float3 xformOp:translate = (8.677511, 0, 0)
+            float3 xformOp:translate = (7.7614613, 0, 0)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
 
@@ -163,7 +163,7 @@ def Xform "Root"
         {
             quatf xformOp:orient = (0.70710677, 0, -0.7071067, 0)
             float3 xformOp:scale = (0.99999994, 0.99999994, 0.99999994)
-            float3 xformOp:translate = (8.655271, 0.0000025629997, 13.515922)
+            float3 xformOp:translate = (7.7392206, 0.0000025629997, 13.515922)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
 
@@ -179,7 +179,7 @@ def Xform "Root"
             int ui:nodegraph:node:stackingOrder = 1
             quatf xformOp:orient = (0.70710677, 0, -0.7071067, 0)
             float3 xformOp:scale = (0.99999994, 0.99999994, 0.99999994)
-            float3 xformOp:translate = (8.655413, 0.0000037401915, 26.843721)
+            float3 xformOp:translate = (7.7393627, 0.0000037401915, 26.843721)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
     }
@@ -222,7 +222,7 @@ def Xform "Root"
     {
         quatf xformOp:orient = (0.6976247, 0, 0.7164633, 0)
         float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (-7.499116, -1.3411045e-7, 4.744376)
+        float3 xformOp:translate = (-6.6412535, 0.0000024437904, 4.721513)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 
@@ -238,7 +238,7 @@ def Xform "Root"
         {
             quatf xformOp:orient = (1, 0, 0, 0)
             float3 xformOp:scale = (1, 1, 1)
-            float3 xformOp:translate = (6.9196606, 0, 11.37434)
+            float3 xformOp:translate = (5.9625006, 0, 11.37434)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
 
@@ -254,7 +254,7 @@ def Xform "Root"
             int ui:nodegraph:node:stackingOrder = 1
             quatf xformOp:orient = (0.71253246, 0, 0.70163924, 0)
             float3 xformOp:scale = (0.9999999, 0.99999994, 0.9999999)
-            float3 xformOp:translate = (-4.7153373, 0, 1.460331)
+            float3 xformOp:translate = (-5.3750224, 0, 1.4501653)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
 
@@ -270,7 +270,7 @@ def Xform "Root"
             int ui:nodegraph:node:stackingOrder = 2
             quatf xformOp:orient = (0.71253246, 0, 0.70163924, 0)
             float3 xformOp:scale = (0.9999999, 0.99999994, 0.9999999)
-            float3 xformOp:translate = (4.8325744, -4.4703484e-8, 1.6074295)
+            float3 xformOp:translate = (3.4803915, -5.9604645e-8, 1.5865948)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
 
@@ -283,7 +283,7 @@ def Xform "Root"
             int ui:nodegraph:node:stackingOrder = 1
             quatf xformOp:orient = (1, 0, 0, 0)
             float3 xformOp:scale = (1, 1, 1)
-            float3 xformOp:translate = (6.9196606, 0, 18.949722)
+            float3 xformOp:translate = (5.9625006, 0, 18.949722)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
 
@@ -302,6 +302,16 @@ def Xform "Root"
             float3 xformOp:translate = (-6.2355566, 2.682209e-7, 11.375412)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
+    }
+
+    def "Fatih" (
+        active = true
+        prepend references = @../Assets/Fatih.usda@
+    )
+    {
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (-8.074776, 0.18828511, 4.972353)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 }
 
