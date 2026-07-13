@@ -90,18 +90,14 @@ class GameViewModel {
             return
         }
         
-        // 1. Ubah state menjadi .opening. GateSystem akan otomatis membuat pintunya terbuka pelan-pelan.
         leftGateComp.state = .opening
         rightGateComp.state = .opening
         
         leftGate.components.set(leftGateComp)
         rightGate.components.set(rightGateComp)
         
-        // 2. Tunggu 3 detik, lalu ubah state menjadi .closing.
         Task {
-            try? await Task.sleep(nanoseconds: 3_000_000_000) // 3 Detik
-            
-            // Ambil ulang komponen terbaru (karena statenya di-update oleh System menjadi .open)
+            try? await Task.sleep(nanoseconds: 3_000_000_000)
             if var currentLeftComp = leftGate.components[GateComponent.self],
                var currentRightComp = rightGate.components[GateComponent.self] {
                 

@@ -16,7 +16,6 @@ public struct SceneSpawner {
             print("[WorldSpawner] Sukses memuat dunia: \(sceneName)")
             
             if let redButton = scene.findEntity(named: "Button_Red"){
-//                print("Button merah ada! Setup sebagai Alarm.")
                 redButton.name = "AlarmButton"
                 redButton.components.set(InputTargetComponent())
                 redButton.generateCollisionShapes(recursive: true)
@@ -24,17 +23,13 @@ public struct SceneSpawner {
             }
             
             if let greenButton = scene.findEntity(named: "Button_Green"){
-//                print("Button hijau ada! Setup sebagai Gate.")
                 greenButton.name = "GateButton"
                 greenButton.components.set(InputTargetComponent())
                 greenButton.generateCollisionShapes(recursive: true)
                 greenButton.components.set(HoverEffectComponent())
             }
             
-            // Di dalam SceneSpawner.swift
-
             if let rightGate = scene.findEntity(named: "Right_Gate") {
-                // Right gate rotasi -90 derajat (.pi / 2) pada sumbu Y
                 rightGate.components.set(GateComponent(
                     closedRotation: rightGate.transform.rotation,
                     openAngle: -.pi / 2
@@ -42,7 +37,6 @@ public struct SceneSpawner {
             }
 
             if let leftGate = scene.findEntity(named: "Left_Gate") {
-                // Left gate rotasi 90 derajat (.pi / 2) pada sumbu Y
                 leftGate.components.set(GateComponent(
                     closedRotation: leftGate.transform.rotation,
                     openAngle: .pi / 2
