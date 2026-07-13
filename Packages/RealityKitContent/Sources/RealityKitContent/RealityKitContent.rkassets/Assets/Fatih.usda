@@ -14,14 +14,14 @@ def Xform "Root"
     def "Fatih_Idle" (
         active = true
         customData = {
-            float3 rotationEulerHint = (-1.5707965, 3.1415927, 2.3841858e-7)
+            float3 rotationEulerHint = (-4.7123885, -1.5707963, 0)
         }
         references = @../Animations/Fatih_Idle.usdc@
     )
     {
-        quatf xformOp:orient = (-1.1520231e-7, -5.338506e-8, 0.70710665, 0.7071069)
+        quatf xformOp:orient = (0.5, -0.49999997, -0.5000001, -0.5)
         float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (4.5, 0.000001437962, 20)
+        float3 xformOp:translate = (20, 0.0000052303076, -4.5000033)
 
         over "AnimationLibrary"
         {
@@ -198,8 +198,8 @@ def Xform "Root"
                 int blendLayer = 300
                 double duration = 10
                 uniform token info:id = "C3591A96-5B5F-4AFB-95BD-B573E41B4F88"
-                float3 position = (4.5, 0.0000016540289, 0)
-                quatf rotation = (-1.152023e-7, -5.3385047e-8, 0.70710653, 0.70710695)
+                float3 position = (0, 0.0000016540289, -4.5)
+                quatf rotation = (-0.50597245, 0.5059727, 0.49395496, 0.49395537)
                 float3 scale = (1, 0.99999994, 0.99999994)
                 double startTime = 0
                 rel target = </Root/Fatih_Idle>
@@ -222,8 +222,8 @@ def Xform "Root"
                 int blendLayer = 300
                 double duration = 0.32448780846640274
                 uniform token info:id = "C3591A96-5B5F-4AFB-95BD-B573E41B4F88"
-                float3 position = (4.5, 0.0000016540289, 0)
-                quatf rotation = (-0.50605434, 0.5060546, 0.49387106, 0.49387148)
+                float3 position = (0, 0.0000016540289, -4.5)
+                quatf rotation = (0.7071066, -0.70710695, 4.5504194e-8, -4.550417e-8)
                 float3 scale = (1, 0.99999994, 0.99999994)
                 double startTime = 10.0000000001
                 rel target = </Root/Fatih_Idle>
@@ -254,8 +254,8 @@ def Xform "Root"
                 int blendLayer = 300
                 double duration = 0.05075203859110872
                 uniform token info:id = "5F8AE900-8A46-44E2-81DC-E7A89620352C"
-                float3 position = (4.5, 0.000001437962, 0)
-                quatf rotation = (-0.49999982, 0.50000024, 0.49999982, 0.5000002)
+                float3 position = (0, 0.000001437962, -4.5)
+                quatf rotation = (0.7071066, -0.70710695, -5.118477e-8, 5.1184745e-8)
                 float3 scale = (1, 0.99999994, 0.99999994)
                 double startTime = 0
                 rel target = </Root/Fatih_Idle>
@@ -278,8 +278,8 @@ def Xform "Root"
                 int blendLayer = 300
                 double duration = 0.1
                 uniform token info:id = "5F8AE900-8A46-44E2-81DC-E7A89620352C"
-                float3 position = (4.5, 0.000001437962, 0)
-                quatf rotation = (3.090861e-8, -3.0908627e-8, 0.70710653, 0.707107)
+                float3 position = (0, 0.000001437962, -4.5)
+                quatf rotation = (-0.49999976, 0.5000003, 0.49999976, 0.50000024)
                 float3 scale = (1, 0.99999994, 0.99999994)
                 double startTime = 0.05075203869110873
                 rel target = </Root/Fatih_Idle>
@@ -304,8 +304,8 @@ def Xform "Root"
                 int blendLayer = 300
                 double duration = 10
                 uniform token info:id = "5F8AE900-8A46-44E2-81DC-E7A89620352C"
-                float3 position = (4.5, 0.000001437962, -14.814607)
-                quatf rotation = (3.090861e-8, -3.0908627e-8, 0.70710653, 0.707107)
+                float3 position = (-14.591435, 0.000001437962, -4.5)
+                quatf rotation = (-0.49999982, 0.50000024, 0.49999982, 0.5000002)
                 float3 scale = (1, 0.99999994, 0.99999994)
                 double startTime = 0.1507520387911088
                 rel target = </Root/Fatih_Idle>
@@ -360,8 +360,8 @@ def Xform "Root"
                 int blendLayer = 300
                 double duration = 0.05075203859110872
                 uniform token info:id = "5F8AE900-8A46-44E2-81DC-E7A89620352C"
-                float3 position = (4.5, 0.000001437962, 0)
-                quatf rotation = (-0.49999982, 0.50000024, 0.49999982, 0.5000002)
+                float3 position = (0, 0.000001437962, -4.5)
+                quatf rotation = (0.7071066, -0.70710695, -4.530267e-8, 4.5302645e-8)
                 float3 scale = (1, 0.99999994, 0.99999994)
                 double startTime = 0
                 rel target = </Root/Fatih_Idle>
@@ -410,8 +410,8 @@ def Xform "Root"
                 int blendLayer = 300
                 double duration = 0.1
                 uniform token info:id = "5F8AE900-8A46-44E2-81DC-E7A89620352C"
-                float3 position = (4.5, 0.000001437962, 0)
-                quatf rotation = (0.7071065, -0.70710707, 5.284102e-9, -5.2840967e-9)
+                float3 position = (0, 0.000001437962, -4.5)
+                quatf rotation = (0.51257914, -0.5125796, 0.48709562, 0.48709604)
                 float3 scale = (1, 0.99999994, 0.99999994)
                 double startTime = 0.05075203869110873
                 rel target = </Root/Fatih_Idle>
@@ -436,8 +436,8 @@ def Xform "Root"
                 int blendLayer = 300
                 double duration = 10
                 uniform token info:id = "5F8AE900-8A46-44E2-81DC-E7A89620352C"
-                float3 position = (4.5, 0.000001437962, 19.692387)
-                quatf rotation = (0.7071065, -0.70710707, 5.284102e-9, -5.2840967e-9)
+                float3 position = (22.21885, 0.0000014305115, -4.5)
+                quatf rotation = (0.5113049, -0.51130533, 0.4884331, 0.4884335)
                 float3 scale = (1, 0.99999994, 0.99999994)
                 double startTime = 0.15075203879110874
                 rel target = </Root/Fatih_Idle>
