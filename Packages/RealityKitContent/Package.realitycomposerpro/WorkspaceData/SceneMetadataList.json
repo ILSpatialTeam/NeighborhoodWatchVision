@@ -201,6 +201,16 @@
       [
         "3D9811AB-4C6B-4602-87A0-81868911537E",
         "Root",
+        "Out",
+        "Track2"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "3D9811AB-4C6B-4602-87A0-81868911537E",
+        "Root",
         "WalkIn",
         "Track5"
       ],
