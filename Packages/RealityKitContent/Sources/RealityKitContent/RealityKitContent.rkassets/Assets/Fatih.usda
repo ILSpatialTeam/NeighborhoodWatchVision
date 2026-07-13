@@ -146,7 +146,7 @@ def Xform "Root"
                 int blendLayer = 500
                 double duration = 2.6666667461395264
                 uniform token info:id = "64654349-A246-4555-ABF1-6AA19094927B"
-                double loopCount = 3.9
+                double loopCount = 3.75
                 bool separateAnimatedValue = 1
                 double startTime = 0.0020646141649048625
                 rel target = </Root/Fatih_Idle>
@@ -220,7 +220,7 @@ def Xform "Root"
             {
                 string actionKind = "moveTo"
                 int blendLayer = 300
-                double duration = 0.32448780846640274
+                double duration = 0.3
                 uniform token info:id = "C3591A96-5B5F-4AFB-95BD-B573E41B4F88"
                 float3 position = (0, 0.0000016540289, -4.5)
                 quatf rotation = (0.7071066, -0.70710695, 4.5504194e-8, -4.550417e-8)
