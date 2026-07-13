@@ -9,11 +9,9 @@ import RealityKit
 
 public struct MovementSystem: System {
     public init(scene: RealityKit.Scene) { }
-
+    
     public func update(context: SceneUpdateContext) {
         let deltaTime = Float(context.deltaTime)
-        
-        // Cari semua entitas yang punya komponen bergerak DAN komponen encounter
         let query = EntityQuery(where: .has(MoveToTargetComponent.self) && .has(ActiveEncounterComponent.self))
         
         for entity in context.entities(matching: query, updatingSystemWhen: .rendering) {
@@ -26,27 +24,35 @@ public struct MovementSystem: System {
             let distance = length(direction)
             
             if distance > 0.1 {
-                // Bergerak menuju target
+                // Terus bergerak
                 let normalizedDirection = direction / distance
                 entity.position += normalizedDirection * moveComponent.speed * deltaTime
             } else {
-                // Sudah sampai tujuan, hapus komponen pergerakan
+                // Sudah sampai tujuan
                 entity.components.remove(MoveToTargetComponent.self)
                 
                 switch encounterComp.state {
                 case .walkingToPost:
-                    // NPC sampai di meja satpam
+                    // 🎬 NPC sampai di meja satpam
                     encounterComp.state = .interrogated
                     entity.components.set(encounterComp)
+                    
+                    // 🔄 HADAP 0 DERAJAT (Menghadap Pemain)
+                    entity.orientation = simd_quatf(angle: 0, axis: SIMD3<Float>(0, 1, 0))
+                    
+                    // Stop jalan, mainkan idle
+                    entity.stopAllAnimations()
+                    if let idle = encounterComp.idleAnimation {
+                        entity.playAnimation(idle.repeat(duration: .infinity), transitionDuration: 0.5)
+                    }
+                    
                     print("NPC \(encounterComp.data.idCardData.printedName) siap diinterogasi.")
                     
                 case .entered, .dismissed:
-                    // NPC sudah selesai berjalan masuk atau lari keluar
                     entity.removeFromParent()
                     print("NPC dihapus dari scene.")
                     
                 case .interrogated:
-                    // Tidak melakukan apa-apa, NPC sedang diam diinterogasi
                     break
                 }
             }
