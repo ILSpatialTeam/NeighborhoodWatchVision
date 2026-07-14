@@ -11,29 +11,28 @@ struct ContentView: View {
     @Environment(AppModel.self) var model
     
     var body: some View {
-        AIPlaygroundView()
-//        Group {
-//            switch model.currentFlow {
-//            case .start:
-//                StartView()
-//            case .story:
-//                StoryView()
-//            case .playing:
-//                Text("Memasuki pos penjagaan...")
-//                    .font(.largeTitle)
-//                    .glassBackgroundEffect()
-//            case .result(let isWin):
-//                ResultView(isWin: isWin)
-//            }
-//        }
-//        .onAppear {
-//            model.loadGameData()
-//        }
-//        .animation(.default, value: model.currentFlow)
+//        AIPlaygroundView()
+        Group {
+            switch model.currentFlow {
+            case .start:
+                StartView()
+            case .story:
+                StoryView()
+            case .playing:
+                Text("Memasuki pos penjagaan...")
+                    .font(.largeTitle)
+                    .glassBackgroundEffect()
+            case .result(let isWin):
+                ResultView(isWin: isWin)
+            }
+        }
+        .onAppear {
+            model.loadGameData()
+        }
+        .animation(.default, value: model.currentFlow)
     }
 }
 
-// MARK: - Subviews untuk Tiap Flow
 struct StartView: View {
     @Environment(AppModel.self) var model
     

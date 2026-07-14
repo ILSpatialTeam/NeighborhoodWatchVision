@@ -41,7 +41,7 @@ class GameViewModel {
                 let modelName = data.encounterID
                 if characterCache[modelName] == nil {
                     do {
-                        let templateEntity = try await Entity(named: "Assets/\(modelName)", in: realityKitContentBundle)
+                        let templateEntity = try await Entity(named: "Animations/\(modelName)", in: realityKitContentBundle)
                         characterCache[modelName] = templateEntity
                         print("✅ Berhasil memuat karakter: \(modelName)")
                     } catch {
@@ -79,6 +79,7 @@ class GameViewModel {
     func handleButtonPress(entityName: String) {
             print("Button pressed: \(entityName)")
             for npc in encounterRoot.children {
+                print("npc in encounterRoot \(npc.name)")
                 if var encounterComp = npc.components[ActiveEncounterComponent.self],
                    encounterComp.state == .interrogated {
                     

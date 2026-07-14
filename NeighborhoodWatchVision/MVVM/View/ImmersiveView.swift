@@ -20,7 +20,9 @@ struct ImmersiveView: View {
     @Environment(AppModel.self) private var appModel
     @Environment(\.openWindow) private var openWindow
     
+    
     @State private var viewModel = GameViewModel()
+    @State private var speech = SpeechPlaygroundViewModel()
 
     var body: some View {
         RealityView { content, attachments in
@@ -51,7 +53,8 @@ struct ImmersiveView: View {
             
         } attachments: {
             Attachment(id: "GameHUD") {
-                HUDView(gameState: viewModel.gameState)
+                HUDView()
+                    .environment(speech)
             }
         }
         .gesture(

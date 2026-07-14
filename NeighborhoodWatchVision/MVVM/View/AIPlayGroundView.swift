@@ -8,7 +8,7 @@
 import SwiftUI
 
 public struct AIPlaygroundView: View {
-    @State private var viewModel = AIPlaygroundViewModel()
+    @State private var viewModel = SpeechPlaygroundViewModel()
     
     public init() {}
     
