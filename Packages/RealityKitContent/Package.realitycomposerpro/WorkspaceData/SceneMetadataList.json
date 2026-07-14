@@ -635,23 +635,6 @@
     "objectMetadataList" : [
       [
         "5858129E-2FDA-4FB3-BF6B-E5A4C756A4C8",
-        "Root"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "5858129E-2FDA-4FB3-BF6B-E5A4C756A4C8",
-        "Root",
-        "Timeline"
-      ],
-      {
-        "isExpanded" : true,
-        "isLocked" : false
-      },
-      [
-        "5858129E-2FDA-4FB3-BF6B-E5A4C756A4C8",
         "Root",
         "Timeline",
         "Track"
@@ -663,7 +646,33 @@
       [
         "5858129E-2FDA-4FB3-BF6B-E5A4C756A4C8",
         "Root",
+        "Houses"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "5858129E-2FDA-4FB3-BF6B-E5A4C756A4C8",
+        "Root",
         "Fences"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "5858129E-2FDA-4FB3-BF6B-E5A4C756A4C8",
+        "Root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "5858129E-2FDA-4FB3-BF6B-E5A4C756A4C8",
+        "Root",
+        "Scope"
       ],
       {
         "isExpanded" : true,
@@ -681,7 +690,7 @@
       [
         "5858129E-2FDA-4FB3-BF6B-E5A4C756A4C8",
         "Root",
-        "Scope"
+        "Timeline"
       ],
       {
         "isExpanded" : true,
