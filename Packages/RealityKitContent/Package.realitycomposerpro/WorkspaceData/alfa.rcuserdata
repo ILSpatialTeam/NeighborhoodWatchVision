@@ -1,5 +1,5 @@
 {
-  "advancedEditorSelectedIdentifier" : "BehaviorsPluginID",
+  "advancedEditorSelectedIdentifier" : "ProjectBrowser",
   "openSceneRelativePaths" : [
     "Scenes\/Immersive.usda",
     "Scenes\/EnviScene.usda",
@@ -12,7 +12,10 @@
     "Mesh\/TreePack1.usdc",
     "Mesh\/TreePack2.usdc",
     "Assets\/Tree1.usda",
-    "Assets\/Untitled Scene 2.usda"
+    "Assets\/Tree2.usda",
+    "Animations\/Anomaly Handaru_Idle.usdc",
+    "Animations\/Anomaly Fatih.usdc",
+    "Animations\/Fatih 1.usdc"
   ],
   "recentIdentifiers" : {
     "0CB919D4-471B-4DD5-BDEC-B08B1AD93AF8" : [
@@ -168,6 +171,74 @@
           0.22908941,
           2.5860415,
           1.7413757,
+          1
+        ]
+      }
+    ],
+    "0F08BB9D-1553-485E-9B31-F8D008DFDC95" : [
+      {
+        "date" : 805701915.24456,
+        "title" : "Untitled",
+        "transform" : [
+          0.6695164,
+          3.5240009e-09,
+          0.7427974,
+          0,
+          0.19806403,
+          0.96379447,
+          -0.17852388,
+          0,
+          -0.71590406,
+          0.2666461,
+          0.6452761,
+          0,
+          46.05095,
+          9.448431,
+          -39.134033,
+          1
+        ]
+      },
+      {
+        "date" : 805701627.524015,
+        "title" : "Untitled",
+        "transform" : [
+          0.6695164,
+          3.5240009e-09,
+          0.7427974,
+          0,
+          0.19806403,
+          0.96379447,
+          -0.17852388,
+          0,
+          -0.71590406,
+          0.2666461,
+          0.6452761,
+          0,
+          3.295295,
+          4.083481,
+          -17.409714,
+          1
+        ]
+      },
+      {
+        "date" : 805701611.690672,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.7071069,
+          -0.70710677,
+          0,
+          0,
+          0.70710677,
+          0.7071069,
+          0,
+          19.588116,
+          3.281434,
+          -2.3365197,
           1
         ]
       }
@@ -1816,6 +1887,30 @@
           1.1341136,
           2.0048218,
           1.6527593,
+          1
+        ]
+      }
+    ],
+    "4ED2412F-8B57-4B64-8EA6-884A4E2E42AE" : [
+      {
+        "date" : 805701946.223589,
+        "title" : "Untitled",
+        "transform" : [
+          0.99983627,
+          0,
+          -0.018095937,
+          0,
+          -0.0127957575,
+          0.7071068,
+          -0.70699096,
+          0,
+          0.012795761,
+          0.70710677,
+          0.70699114,
+          0,
+          0.10576292,
+          5.844567,
+          5.843611,
           1
         ]
       }
@@ -3980,6 +4075,30 @@
         ]
       }
     ],
+    "A3DE05ED-849A-41BF-BEEC-16414D22D256" : [
+      {
+        "date" : 805701813.552979,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.7071069,
+          -0.70710677,
+          0,
+          0,
+          0.70710677,
+          0.7071069,
+          0,
+          1.215357,
+          3.9650261,
+          3.4741979,
+          1
+        ]
+      }
+    ],
     "AA9D8856-4626-4D6C-933E-820129D1BD32" : [
       {
         "date" : 805381234.682474,
@@ -5504,5 +5623,5 @@
   "sceneViewportBackgroundColors" : {
 
   },
-  "selectedSceneRelativePath" : "Animations\/Alfa_Idle.usdc"
+  "selectedSceneRelativePath" : "Animations\/Fatih 1.usdc"
 }
