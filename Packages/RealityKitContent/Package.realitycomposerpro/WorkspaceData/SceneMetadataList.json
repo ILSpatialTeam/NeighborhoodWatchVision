@@ -1771,8 +1771,8 @@
       [
         "E7B5D955-E08C-4CE1-A744-37E5B8B0FC79",
         "root",
-        "alfa_char_grp",
-        "rig_003"
+        "Pass",
+        "Track"
       ],
       {
         "isExpanded" : true,
@@ -1781,7 +1781,8 @@
       [
         "E7B5D955-E08C-4CE1-A744-37E5B8B0FC79",
         "root",
-        "WalkIn"
+        "Pass",
+        "Track2"
       ],
       {
         "isExpanded" : true,
@@ -1791,6 +1792,42 @@
         "E7B5D955-E08C-4CE1-A744-37E5B8B0FC79",
         "root",
         "alfa_char_grp"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "E7B5D955-E08C-4CE1-A744-37E5B8B0FC79",
+        "root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "E7B5D955-E08C-4CE1-A744-37E5B8B0FC79",
+        "root",
+        "Out",
+        "Track2"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "E7B5D955-E08C-4CE1-A744-37E5B8B0FC79",
+        "root",
+        "Out"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "E7B5D955-E08C-4CE1-A744-37E5B8B0FC79",
+        "root",
+        "WalkIn"
       ],
       {
         "isExpanded" : true,
@@ -1809,7 +1846,8 @@
       [
         "E7B5D955-E08C-4CE1-A744-37E5B8B0FC79",
         "root",
-        "_materials"
+        "WalkIn",
+        "Track2"
       ],
       {
         "isExpanded" : true,
@@ -1819,7 +1857,7 @@
         "E7B5D955-E08C-4CE1-A744-37E5B8B0FC79",
         "root",
         "WalkIn",
-        "Track2"
+        "Track"
       ],
       {
         "isExpanded" : true,
@@ -1838,7 +1876,27 @@
       },
       [
         "E7B5D955-E08C-4CE1-A744-37E5B8B0FC79",
-        "root"
+        "root",
+        "_materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "E7B5D955-E08C-4CE1-A744-37E5B8B0FC79",
+        "root",
+        "alfa_char_grp",
+        "rig_003"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "E7B5D955-E08C-4CE1-A744-37E5B8B0FC79",
+        "root",
+        "Pass"
       ],
       {
         "isExpanded" : true,
