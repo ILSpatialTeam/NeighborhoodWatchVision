@@ -15,11 +15,11 @@ struct GameDashboardView: View {
             if let data = model.gameData {
                 TabView {
                     // TAB 1: POS PENJAGAAN (UI INTEROGASI AI)
-                    InterrogationView()
-                        .tabItem {
-                            Label("Pos Jaga", systemImage: "shield.righthalf.filled")
-                        }
-                    
+//                    InterrogationView()
+//                        .tabItem {
+//                            Label("Pos Jaga", systemImage: "shield.righthalf.filled")
+//                        }
+//                    
                     // TAB 2: RESIDENTS (MANIFEST)
                     ResidentListView(residents: data.residents)
                         .tabItem {

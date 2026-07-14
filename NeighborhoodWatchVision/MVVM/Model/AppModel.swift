@@ -49,4 +49,5 @@ class AppModel {
     }
     
     var encounterViewModel: EncounterViewModel = EncounterViewModel()
+    var gameViewModel: GameViewModel = GameViewModel()
 }

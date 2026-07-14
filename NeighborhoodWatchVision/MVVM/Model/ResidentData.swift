@@ -12,41 +12,41 @@ public enum RoleType: String, Codable {
     case anomaly
 }
 
-struct ResidentManifest: Codable, Identifiable {
-    var id: String { residentID }
-    let residentID: String
-    let trueName: String
-    let trueAddress: String
-    let occupation: String
-    let relation: String
-    let visualTraits: [String]
-    let personality: String
-    let secretLore: String
+public struct ResidentManifest: Codable, Identifiable {
+    public var id: String { residentID }
+    public let residentID: String
+    public let trueName: String
+    public let trueAddress: String
+    public let occupation: String
+    public let relation: String
+    public let visualTraits: [String]
+    public let personality: String
+    public let secretLore: String
 }
 
-struct EncounterData: Codable, Identifiable {
-    var id: String { encounterID }
-    let encounterID: String
-    let scenarioName: String
-    let spawnVisuals: [String]
-    let idCardData: IDCardData
-    let llmPromptContext: LLMPromptContext
-    let idImageURL: String
+public struct EncounterData: Codable, Identifiable {
+    public var id: String { encounterID }
+    public let encounterID: String
+    public let scenarioName: String
+    public let spawnVisuals: [String]
+    public let idCardData: IDCardData
+    public let llmPromptContext: LLMPromptContext
+    public let idImageURL: String
 }
 
-struct IDCardData: Codable {
-    let printedName: String
-    let printedAddress: String
-    let printedIDNumber: String
-    let expirationDate: String
+public struct IDCardData: Codable {
+    public let printedName: String
+    public let printedAddress: String
+    public let printedIDNumber: String
+    public let expirationDate: String
 }
 
-struct LLMPromptContext: Codable {
-    let roleType: RoleType
-    let characterName: String
-    let believedAddress: String
-    let believedOccupation: String
-    let objective: String
-    let spatialContext: String
-    let behavioralInstruction: String
+public struct LLMPromptContext: Codable {
+    public let roleType: RoleType
+    public let characterName: String
+    public let believedAddress: String
+    public let believedOccupation: String
+    public let objective: String
+    public let spatialContext: String
+    public let behavioralInstruction: String
 }

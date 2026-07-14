@@ -22,8 +22,8 @@ public class EncounterViewModel {
     private let llmFactory = LLMFactory() // Factory MLX Swift milikmu
     
     // MARK: - Game Session State
-    var encounterQueue: [EncounterData] = []
-    var activeEncounter: EncounterData? = nil
+//    var encounterQueue: [EncounterData] = []
+//    var activeEncounter: EncounterData? = nil
     public var npcDialogue: String = ""
     public var isNPCThinking: Bool = false
     
@@ -31,8 +31,12 @@ public class EncounterViewModel {
     
     // MARK: - 1. Setup Antrean (Dipanggil dari View menggunakan AppModel)
     func setupQueue(encounters: [EncounterData]) {
-        self.encounterQueue = encounters
+//        self.encounterQueue = encounters
         self.logText += "\n[System] Guard system active. Total queue: \(encounters.count) people."
+    }
+    
+    public func resetDialogue() {
+        self.npcDialogue = "..."
     }
     
     // MARK: - 2. Load Model AI Lokal
@@ -58,30 +62,30 @@ public class EncounterViewModel {
     }
     
     // MARK: - 3. Panggil Karakter Selanjutnya
-    public func startNextEncounter() {
-        guard !encounterQueue.isEmpty else {
-            logText += "\n[System] No more people in queue. Shift is over!"
-            activeEncounter = nil
-            npcDialogue = "Shift is over."
-            return
-        }
-        
-        // Tarik 1 orang dari antrean
-        activeEncounter = encounterQueue.removeFirst()
-        npcDialogue = "..." // Reset UI Bubble Chat
-        logText += "\n[System] Someone approaches: \(activeEncounter!.scenarioName)"
-    }
+//    public func startNextEncounter() {
+//        guard !encounterQueue.isEmpty else {
+//            logText += "\n[System] No more people in queue. Shift is over!"
+//            activeEncounter = nil
+//            npcDialogue = "Shift is over."
+//            return
+//        }
+//        
+//        // Tarik 1 orang dari antrean
+//        activeEncounter = encounterQueue.removeFirst()
+//        npcDialogue = "..." // Reset UI Bubble Chat
+//        logText += "\n[System] Someone approaches: \(activeEncounter!.scenarioName)"
+//    }
     
     // MARK: - 4. Interogasi Karakter (Kirim Suara Pemain ke LLM)
-    public func interactWithNPC(playerSpeech: String) async {
+    public func interactWithNPC(playerSpeech: String, encounter: EncounterData) async {
         guard isModelLoaded else {
             logText += "\n[Warning] Wait, the AI model is not ready yet!"
             return
         }
-        guard let encounter = activeEncounter else {
-            logText += "\n[Warning] No one is in front of the guard booth."
-            return
-        }
+//        guard let encounter = activeEncounter else {
+//            logText += "\n[Warning] No one is in front of the guard booth."
+//            return
+//        }
         
         isNPCThinking = true
         npcDialogue = "" // Bersihkan teks lama untuk efek streaming baru

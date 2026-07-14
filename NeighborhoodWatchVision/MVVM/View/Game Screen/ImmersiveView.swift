@@ -13,10 +13,6 @@ import Combine
 struct ImmersiveView: View {
     @Environment(AppModel.self) private var appModel
     @Environment(\.openWindow) private var openWindow
-    
-    
-    @State private var viewModel = GameViewModel()
-    @State private var speech = SpeechPlaygroundViewModel()
 
     var body: some View {
         RealityView { content, attachments in
@@ -24,14 +20,14 @@ struct ImmersiveView: View {
             GateComponent.registerComponent()
             GateSystem.registerSystem()
             
-            content.add(viewModel.encounterRoot)
+            content.add(appModel.gameViewModel.encounterRoot)
             
             if let encounters = appModel.gameData?.encounters, !encounters.isEmpty {
-                viewModel.startGame(with: encounters)
+                appModel.gameViewModel.startGame(with: encounters)
             }
             
             if let world = await SceneSpawner.spawnWorld() {
-                viewModel.worldRoot = world
+                appModel.gameViewModel.worldRoot = world
                 content.add(world)
             }
             
@@ -48,18 +44,18 @@ struct ImmersiveView: View {
         } attachments: {
             Attachment(id: "GameHUD") {
                 HUDView()
-                    .environment(speech)
+                    .environment(appModel)
             }
         }
         .gesture(
             SpatialTapGesture()
                 .targetedToAnyEntity()
                 .onEnded { value in
-                    guard case .playing = viewModel.gameState else { return }
-                    viewModel.handleButtonPress(entityName: value.entity.name)
+                    guard case .playing = appModel.gameViewModel.gameState else { return }
+                    appModel.gameViewModel.handleButtonPress(entityName: value.entity.name)
                 }
         )
-        .onChange(of: viewModel.gameState) { oldValue, newValue in
+        .onChange(of: appModel.gameViewModel.gameState) { oldValue, newValue in
             switch newValue {
             case .won:
                 print("Game Dimenangkan!")
@@ -76,8 +72,8 @@ struct ImmersiveView: View {
             }
         }
         .onChange(of: appModel.currentFlow) { oldValue, newValue in
-            if newValue == .playing && (viewModel.gameState != .playing) {
-                viewModel.restartGame()
+            if newValue == .playing && (appModel.gameViewModel.gameState != .playing) {
+                appModel.gameViewModel.restartGame()
             }
         }
         .onReceive(NotificationCenter.default.publisher(for: Notification.Name("RealityKit.NotificationTrigger"))) { notification in
@@ -89,7 +85,7 @@ struct ImmersiveView: View {
             switch identifier {
             case "Arrived":
                 print("Timeline RCP mengirim: Arrived")
-                viewModel.handleNpcArrived()
+                appModel.gameViewModel.handleNpcArrived()
             default:
                 break
             }

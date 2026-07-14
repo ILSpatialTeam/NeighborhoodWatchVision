@@ -20,104 +20,109 @@ enum GameState: Equatable {
 @Observable
 class GameViewModel {
     var encounterRoot = Entity()
-        var worldRoot: Entity?
-        var currentEncounterIndex = 0
-        var gameState: GameState = .playing
+    var worldRoot: Entity?
+    var currentEncounterIndex = 0
+    var gameState: GameState = .playing
         
-        private var encounters: [EncounterData] = []
+    private var encounters: [EncounterData] = []
         
-        private var characterCache: [String: Entity] = [:]
+    private var characterCache: [String: Entity] = [:]
+    
+    var activeEncounter: EncounterData? {
+        guard encounters.indices.contains(currentEncounterIndex) else { return nil }
+        return encounters[currentEncounterIndex]
+    }
         
-        func startGame(with data: [EncounterData]) {
-            self.encounters = data.shuffled()
-            self.currentEncounterIndex = 0
-            self.gameState = .playing
-            encounterRoot.children.removeAll()
-            Task {
-                await preloadCharacters(from: self.encounters)
-                if !self.encounters.isEmpty {
-                    self.spawnEncounter(data: self.encounters[self.currentEncounterIndex])
-                }
+    func startGame(with data: [EncounterData]) {
+        self.encounters = data.shuffled()
+        self.currentEncounterIndex = 0
+        self.gameState = .playing
+        encounterRoot.children.removeAll()
+        Task {
+            await preloadCharacters(from: self.encounters)
+            if !self.encounters.isEmpty {
+                self.spawnEncounter(data: self.encounters[self.currentEncounterIndex])
             }
         }
+    }
     
     private func preloadCharacters(from dataList: [EncounterData]) async {
-            print("Mulai memuat (preload) karakter 3D...")
-            for data in dataList {
-                let modelName = data.encounterID
-                if characterCache[modelName] == nil {
-                    do {
-                        let templateEntity = try await Entity(named: "Animations/\(modelName)", in: realityKitContentBundle)
-                        characterCache[modelName] = templateEntity
-                        print("✅ Berhasil memuat karakter: \(modelName)")
-                    } catch {
-                        print("❌ Gagal memuat karakter \(modelName): \(error)")
-                    }
+        print("Mulai memuat (preload) karakter 3D...")
+        for data in dataList {
+            let modelName = data.encounterID
+            if characterCache[modelName] == nil {
+                do {
+                    let templateEntity = try await Entity(named: "Animations/\(modelName)", in: realityKitContentBundle)
+                    characterCache[modelName] = templateEntity
+                    print("✅ Berhasil memuat karakter: \(modelName)")
+                } catch {
+                    print("❌ Gagal memuat karakter \(modelName): \(error)")
                 }
             }
-            print("Preload selesai.")
         }
+        print("Preload selesai.")
+    }
     
     func restartGame() {
-            print("Merestart Game...")
+        print("Merestart Game...")
+        
+        encounterRoot.children.removeAll()
             
-            encounterRoot.children.removeAll()
-            
-            if let world = worldRoot,
-               let leftGate = world.findEntity(named: "Left_Gate"),
-               var leftGateComp = leftGate.components[GateComponent.self],
-               let rightGate = world.findEntity(named: "Right_Gate"),
-               var rightGateComp = rightGate.components[GateComponent.self] {
+        if let world = worldRoot,
+            let leftGate = world.findEntity(named: "Left_Gate"),
+            var leftGateComp = leftGate.components[GateComponent.self],
+            let rightGate = world.findEntity(named: "Right_Gate"),
+            var rightGateComp = rightGate.components[GateComponent.self] {
                 
-                leftGateComp.state = .closed
-                rightGateComp.state = .closed
+            leftGateComp.state = .closed
+            rightGateComp.state = .closed
                 
-                leftGate.transform.rotation = leftGateComp.closedRotation
-                rightGate.transform.rotation = rightGateComp.closedRotation
+            leftGate.transform.rotation = leftGateComp.closedRotation
+            rightGate.transform.rotation = rightGateComp.closedRotation
                 
-                leftGate.components.set(leftGateComp)
-                rightGate.components.set(rightGateComp)
-            }
-            startGame(with: self.encounters)
+            leftGate.components.set(leftGateComp)
+            rightGate.components.set(rightGateComp)
         }
+        startGame(with: self.encounters)
+    }
     
     // MARK: - Input Pemain
     func handleButtonPress(entityName: String) {
-            print("Button pressed: \(entityName)")
-            for npc in encounterRoot.children {
-                print("npc in encounterRoot \(npc.name)")
-                if var encounterComp = npc.components[ActiveEncounterComponent.self],
-                   encounterComp.state == .interrogated {
+        print("Button pressed: \(entityName)")
+        for npc in encounterRoot.children {
+            print("npc in encounterRoot \(npc.name)")
+            if var encounterComp = npc.components[ActiveEncounterComponent.self],
+                encounterComp.state == .interrogated {
                     
-                    let isAnomaly = encounterComp.data.llmPromptContext.roleType == .anomaly
+                let isAnomaly = encounterComp.data.llmPromptContext.roleType == .anomaly
                     
-                    if entityName == "GateButton" || entityName == "export3dcoat_001" {
-                        encounterComp.state = .entered
-                        npc.components.set(encounterComp)
+                if entityName == "GateButton" || entityName == "export3dcoat_001" {
+                    encounterComp.state = .entered
+                    npc.components.set(encounterComp)
                         
-                        notifyTimeline("Pass")
-                        animateGates()
+                    notifyTimeline("Pass")
+                    animateGates()
                         
-                        if isAnomaly {
-                            gameState = .lost(reason: "Kamu membiarkan anomali masuk ke dalam perumahan!")
-                            return
-                        }
+                    if isAnomaly {
+                        gameState = .lost(reason: "Kamu membiarkan anomali masuk ke dalam perumahan!")
+                        return
                     }
-                    else if entityName == "AlarmButton" || entityName == "export3dcoat" {
-                        notifyTimeline("Out")
-                        encounterComp.state = .dismissed
-                        npc.components.set(encounterComp)
-                    }
-                    
-                    Task {
-                        try? await Task.sleep(nanoseconds: 2_000_000_000)
-                        npc.removeFromParent()
-                        spawnNextEncounter()
-                    }
-                    break
                 }
+                else if entityName == "AlarmButton" || entityName == "export3dcoat" {
+                    notifyTimeline("Out")
+                    encounterComp.state = .dismissed
+                    npc.components.set(encounterComp)
+                }
+                    
+                Task {
+                    try? await Task.sleep(nanoseconds: 2_000_000_000)
+                    npc.removeFromParent()
+                    spawnNextEncounter()
+                }
+                break
             }
         }
+    }
     
     private func animateGates() {
         guard let world = worldRoot,
