@@ -1712,7 +1712,17 @@
       [
         "E7B5D955-E08C-4CE1-A744-37E5B8B0FC79",
         "root",
-        "_materials"
+        "alfa_char_grp",
+        "rig_003"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "E7B5D955-E08C-4CE1-A744-37E5B8B0FC79",
+        "root",
+        "WalkIn"
       ],
       {
         "isExpanded" : true,
@@ -1729,7 +1739,58 @@
       },
       [
         "E7B5D955-E08C-4CE1-A744-37E5B8B0FC79",
+        "root",
+        "WalkIn",
+        "Track3"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "E7B5D955-E08C-4CE1-A744-37E5B8B0FC79",
+        "root",
+        "_materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "E7B5D955-E08C-4CE1-A744-37E5B8B0FC79",
+        "root",
+        "WalkIn",
+        "Track2"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "E7B5D955-E08C-4CE1-A744-37E5B8B0FC79",
+        "root",
+        "alfa_char_grp",
+        "rig_003",
+        "rig"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "E7B5D955-E08C-4CE1-A744-37E5B8B0FC79",
         "root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "E7B5D955-E08C-4CE1-A744-37E5B8B0FC79",
+        "root",
+        "alfa_char_grp",
+        "rig_003",
+        "Body_Alfa"
       ],
       {
         "isExpanded" : true,
