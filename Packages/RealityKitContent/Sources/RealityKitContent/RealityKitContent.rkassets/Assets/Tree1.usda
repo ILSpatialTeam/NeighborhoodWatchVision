@@ -1,0 +1,21 @@
+#usda 1.0
+(
+    customLayerData = {
+        string creator = "Reality Composer Pro Version 2.0 (494.100.6)"
+    }
+    defaultPrim = "Root"
+    metersPerUnit = 1
+    upAxis = "Y"
+)
+
+def Xform "Root"
+{
+    def "TreePack2" (
+        active = true
+        prepend references = @../Mesh/TreePack2.usdc@
+    )
+    {
+        float3 xformOp:scale = (0.3, 0.3, 0.3)
+    }
+}
+

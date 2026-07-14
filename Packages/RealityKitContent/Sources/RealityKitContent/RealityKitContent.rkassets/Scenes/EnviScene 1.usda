@@ -14,7 +14,7 @@ def Xform "Root" (
     }
 )
 {
-    reorder nameChildren = ["Gate", "Houses", "Fences", "Cube", "PosSatpam", "StreetLamp", "StreetLamp_1", "StreetLamp_2", "StreetLamp_3", "StreetLamp_4", "StreetLamps", "Timeline"]
+    reorder nameChildren = ["Gate", "Houses", "Fences", "Cube", "PosSatpam", "Scope", "DirectionalLight", "Tree1", "Timeline"]
     quatf xformOp:orient = (0.7117866, 0, 0.7023957, 0)
     float3 xformOp:translate = (-4.971842, -0.18828337, -7.2341256)
     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
@@ -335,6 +335,17 @@ def Xform "Root" (
         def RealityKitTrack "Track"
         {
         }
+    }
+
+    def "Tree1" (
+        active = true
+        prepend references = @../Assets/Tree1.usda@
+    )
+    {
+        quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
+        float3 xformOp:scale = (0.9999999, 0.99999994, 0.9999999)
+        float3 xformOp:translate = (5.19185, 1.04308135e-7, 7.6450005)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 }
 
