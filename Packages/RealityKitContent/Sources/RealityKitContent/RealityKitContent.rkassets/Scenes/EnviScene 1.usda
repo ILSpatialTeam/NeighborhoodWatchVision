@@ -416,6 +416,19 @@ def Xform "Root" (
         float3 xformOp:translate = (-5.6667447, 0.18828358, 19.41329)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
+
+    def "Tree1_4" (
+        active = true
+        prepend references = @../Assets/Tree1.usda@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
+        float3 xformOp:scale = (0.9999999, 0.99999994, 0.9999999)
+        float3 xformOp:translate = (4.8279853, 1.04308135e-7, -2.7225049)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
 }
 
 def Cube "Cube_1" (
