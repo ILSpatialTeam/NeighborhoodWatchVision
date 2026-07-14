@@ -132,7 +132,7 @@
   ],
   "encounters": [
       {
-        "encounterID": "Alfa_Idle",
+        "encounterID": "Anomaly Sandy",
         "scenarioName": "Anomaly Sandy (Fake Address)",
         "spawnVisuals": [
           "Dressed neatly like a normal elder, but something is off",
@@ -156,7 +156,7 @@
         "idImageURL": ""
       },
       {
-        "encounterID": "Alfa_Idle",
+        "encounterID": "Anomaly Alfa",
         "scenarioName": "Anomaly Alfa (Wrong Parking Status)",
         "spawnVisuals": [
           "Faded government uniform",
@@ -180,7 +180,7 @@
         "idImageURL": ""
       },
       {
-        "encounterID": "Alfa_Idle",
+        "encounterID": "Anomaly Handaru",
         "scenarioName": "Anomaly Handaru (Spatial Memory Failure)",
         "spawnVisuals": [
           "Bright neon hoodie",
@@ -204,7 +204,7 @@
         "idImageURL": ""
       },
       {
-        "encounterID": "Alfa_Idle",
+        "encounterID": "Anomaly Fatih",
         "scenarioName": "Anomaly Fatih (Swapped Block Address)",
         "spawnVisuals": [
           "Neat business suit",
@@ -228,7 +228,7 @@
         "idImageURL": ""
       },
       {
-        "encounterID": "Alfa_Idle",
+        "encounterID": "Fatih",
         "scenarioName": "Fatih (Real)",
         "spawnVisuals": [
           "A highly detailed portrait of a stressed young CEO wearing a neat business suit but with cheap rubber flip-flops, wearing smart glasses, looking like he's in a rush"
@@ -251,7 +251,7 @@
         "idImageURL": ""
       },
       {
-        "encounterID": "Alfa_Idle",
+        "encounterID": "Sandy",
         "scenarioName": "Sandy Rezeky (Real)",
         "spawnVisuals": [
           "A serene portrait of an Indonesian elder wearing a neat white koko shirt and a black peci, holding a digital tasbih on his finger, smiling warmly"
@@ -274,7 +274,7 @@
         "idImageURL": ""
       },
       {
-        "encounterID": "Alfa_Idle",
+        "encounterID": "Handaru",
         "scenarioName": "Handaru (Real)",
         "spawnVisuals": [
           "A hyper-energetic portrait of a street influencer wearing a bright neon hoodie, holding a vlog camera on a selfie stick pointing at his own face, fish-eye lens effect"
@@ -297,7 +297,7 @@
         "idImageURL": ""
       },
       {
-        "encounterID": "Alfa_Idle",
+        "encounterID": "Alfa",
         "scenarioName": "Alfa (Real)",
         "spawnVisuals": [
           "A portrait of a lazy government IT staff wearing a faded blue uniform, looking sleepy, wearing a necklace with an 8GB Kingston flash drive pendant"
