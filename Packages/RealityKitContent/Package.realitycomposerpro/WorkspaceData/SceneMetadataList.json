@@ -1600,6 +1600,27 @@
       }
     ]
   },
+  "B8BBA1CC-0F9D-4C20-8546-2D5CDAEE1B16" : {
+    "objectMetadataList" : [
+      [
+        "B8BBA1CC-0F9D-4C20-8546-2D5CDAEE1B16",
+        "root",
+        "_materials"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      },
+      [
+        "B8BBA1CC-0F9D-4C20-8546-2D5CDAEE1B16",
+        "root"
+      ],
+      {
+        "isExpanded" : true,
+        "isLocked" : false
+      }
+    ]
+  },
   "B965C361-4FE1-40A2-9077-DE1D9DD05473" : {
     "objectMetadataList" : [
       [

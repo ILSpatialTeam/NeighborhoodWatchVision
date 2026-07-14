@@ -2,20 +2,9 @@
   "advancedEditorSelectedIdentifier" : "ProjectBrowser",
   "openSceneRelativePaths" : [
     "Scenes\/EnviScene.usda",
-    "Assets\/Card Sandy.usda",
-    "Assets\/Anomaly Sandy.usda",
-    "Assets\/Anomaly Handaru.usda",
-    "Assets\/Anomaly Fatih.usda",
-    "Scenes\/EnviScene 1.usda",
-    "Animations\/Alfa_Idle.usdc",
-    "Mesh\/TreePack1.usdc",
-    "Mesh\/TreePack2.usdc",
-    "Assets\/Tree1.usda",
-    "Assets\/Tree2.usda",
-    "Animations\/Anomaly Handaru_Idle.usdc",
-    "Animations\/Anomaly Fatih.usdc",
-    "Animations\/Anomaly Sandy.usdc",
-    "Scenes\/Immersive.usda"
+    "Scenes\/Immersive.usda",
+    "Animations\/Handaru.usdc",
+    "Animations\/Sandy.usdc"
   ],
   "recentIdentifiers" : {
     "0CB919D4-471B-4DD5-BDEC-B08B1AD93AF8" : [
@@ -803,6 +792,28 @@
     ],
     "262E7451-5588-4B8A-B057-A20B16538E66" : [
       {
+        "date" : 805707438.126467,
+        "title" : "Untitled",
+        "transform" : [
+          0.9601995,
+          -5.659569e-09,
+          0.27931497,
+          0,
+          0.08514915,
+          0.95240045,
+          -0.29271647,
+          0,
+          -0.26601982,
+          0.30484957,
+          0.9144945,
+          0,
+          -319.58264,
+          584.84973,
+          998.72516,
+          1
+        ]
+      },
+      {
         "date" : 805705179.777079,
         "title" : "Untitled",
         "transform" : [
@@ -997,28 +1008,6 @@
           95.73407,
           59.674175,
           27.430992,
-          1
-        ]
-      },
-      {
-        "date" : 805624728.673393,
-        "title" : "Untitled",
-        "transform" : [
-          0.7293658,
-          -1.9744421e-08,
-          -0.6841239,
-          0,
-          -0.3013407,
-          0.897764,
-          -0.32126874,
-          0,
-          0.6141817,
-          0.44047672,
-          0.6547985,
-          0,
-          3.881909,
-          1.6399565,
-          1.112809,
           1
         ]
       }
@@ -1892,6 +1881,50 @@
       }
     ],
     "4ED2412F-8B57-4B64-8EA6-884A4E2E42AE" : [
+      {
+        "date" : 805707459.774382,
+        "title" : "Untitled",
+        "transform" : [
+          0.99983627,
+          0,
+          -0.018095937,
+          0,
+          -0.0127957575,
+          0.7071068,
+          -0.70699096,
+          0,
+          0.012795761,
+          0.70710677,
+          0.70699114,
+          0,
+          5.794949,
+          12.958815,
+          10.464884,
+          1
+        ]
+      },
+      {
+        "date" : 805707444.982562,
+        "title" : "Untitled",
+        "transform" : [
+          0.99983627,
+          0,
+          -0.018095937,
+          0,
+          -0.0127957575,
+          0.7071068,
+          -0.70699096,
+          0,
+          0.012795761,
+          0.70710677,
+          0.70699114,
+          0,
+          0.41106406,
+          22.71582,
+          22.712103,
+          1
+        ]
+      },
       {
         "date" : 805705075.235634,
         "title" : "Untitled",
@@ -4389,6 +4422,52 @@
         ]
       }
     ],
+    "B8BBA1CC-0F9D-4C20-8546-2D5CDAEE1B16" : [
+      {
+        "date" : 805707514.184678,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.7071069,
+          -0.70710677,
+          0,
+          0,
+          0.70710677,
+          0.7071069,
+          0,
+          0,
+          13.136443,
+          13.136445,
+          1
+        ]
+      },
+      {
+        "date" : 805707512.85864,
+        "title" : "Untitled",
+        "transform" : [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0.7071069,
+          -0.70710677,
+          0,
+          0,
+          0.70710677,
+          0.7071069,
+          0,
+          0,
+          19.429726,
+          19.429728,
+          1
+        ]
+      }
+    ],
     "BBEC5BF3-1C6B-45B1-BEB7-E4CD9BBC91E9" : [
       {
         "date" : 805623240.193854,
@@ -5645,5 +5724,5 @@
   "sceneViewportBackgroundColors" : {
 
   },
-  "selectedSceneRelativePath" : "Scenes\/EnviScene 1.usda"
+  "selectedSceneRelativePath" : "Animations\/Sandy.usdc"
 }
