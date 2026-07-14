@@ -52,7 +52,7 @@ def Xform "Root" (
         active = true
     )
     {
-        reorder nameChildren = ["House7", "House3", "House6", "House4", "House1"]
+        reorder nameChildren = ["House7_1", "House5", "House2", "House7", "House3", "House6", "House4", "House1"]
         def "House7" (
             active = true
             customData = {
@@ -117,7 +117,46 @@ def Xform "Root" (
         {
             quatf xformOp:orient = (1, 0, 0, 0)
             float3 xformOp:scale = (0.8, 0.8, 0.8)
-            float3 xformOp:translate = (12.41726, 0, 21.067863)
+            float3 xformOp:translate = (12.417256, -2.0861627e-7, 22.68442)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "House2" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (0, -3.1415918, 0)
+            }
+            prepend references = @../Assets/House2.usda@
+        )
+        {
+            quatf xformOp:orient = (4.371139e-8, 0, 1, 0)
+            float3 xformOp:scale = (1, 1.0000001, 1)
+            float3 xformOp:translate = (22.540516, 7.7486044e-7, -3.6134083)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "House5" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (0, 1.5707963, 0)
+            }
+            prepend references = @../Assets/House5.usda@
+        )
+        {
+            quatf xformOp:orient = (0.7033745, 0, 0.7108195, 0)
+            float3 xformOp:scale = (0.8, 0.8000001, 0.8)
+            float3 xformOp:translate = (12.451066, -7.450581e-8, -5.61927)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "House7_1" (
+            active = true
+            prepend references = @../Assets/House7.usda@
+        )
+        {
+            quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
+            float3 xformOp:scale = (0.8, 0.8000001, 0.8)
+            float3 xformOp:translate = (22.87407, -1.4901163e-8, 29.103376)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
     }
@@ -414,6 +453,139 @@ def Xform "Root" (
         quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
         float3 xformOp:scale = (0.9999999, 0.99999994, 0.9999999)
         float3 xformOp:translate = (-5.6667447, 0.18828358, 19.41329)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Tree1_4" (
+        active = true
+        prepend references = @../Assets/Tree1.usda@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
+        float3 xformOp:scale = (0.9999999, 0.99999994, 0.9999999)
+        float3 xformOp:translate = (4.8232903, 1.04308135e-7, -3.0760424)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Tree2_2" (
+        active = true
+        prepend references = @../Assets/Tree2.usda@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (40, 40)
+        int ui:nodegraph:node:stackingOrder = 2
+        quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
+        float3 xformOp:scale = (0.9999999, 0.99999994, 0.9999999)
+        float3 xformOp:translate = (-5.951489, 0.18828423, -2.0243833)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Tree2_3" (
+        active = true
+        prepend references = @../Assets/Tree2.usda@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
+        float3 xformOp:scale = (0.9999999, 0.99999994, 0.9999999)
+        float3 xformOp:translate = (11.375451, 0.18828446, 8.375561)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Tree1_5" (
+        active = true
+        prepend references = @../Assets/Tree1.usda@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
+        float3 xformOp:scale = (0.9999999, 0.99999994, 0.9999999)
+        float3 xformOp:translate = (11.883761, 7.897616e-7, 18.231245)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Tree1_6" (
+        active = true
+        prepend references = @../Assets/Tree1.usda@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (40, 40)
+        int ui:nodegraph:node:stackingOrder = 2
+        quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
+        float3 xformOp:scale = (0.9999999, 0.99999994, 0.9999999)
+        float3 xformOp:translate = (21.432005, 0.0000012665988, 13.9320345)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Tree2_4" (
+        active = true
+        prepend references = @../Assets/Tree2.usda@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (40, 40)
+        int ui:nodegraph:node:stackingOrder = 2
+        quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
+        float3 xformOp:scale = (0.9999999, 0.99999994, 0.9999999)
+        float3 xformOp:translate = (22.380333, 0.18828492, 1.5639249)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Tree1_7" (
+        active = true
+        prepend references = @../Assets/Tree1.usda@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (40, 40)
+        int ui:nodegraph:node:stackingOrder = 2
+        quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
+        float3 xformOp:scale = (0.9999999, 0.99999994, 0.9999999)
+        float3 xformOp:translate = (12.215415, 1.04308135e-7, -2.5423667)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Tree1_8" (
+        active = true
+        prepend references = @../Assets/Tree1.usda@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (60, 60)
+        int ui:nodegraph:node:stackingOrder = 3
+        quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
+        float3 xformOp:scale = (0.9999999, 0.99999994, 0.9999999)
+        float3 xformOp:translate = (21.924866, -1.4901163e-8, -9.276474)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Tree2_5" (
+        active = true
+        prepend references = @../Assets/Tree2.usda@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (60, 60)
+        int ui:nodegraph:node:stackingOrder = 3
+        quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
+        float3 xformOp:scale = (0.9999999, 0.99999994, 0.9999999)
+        float3 xformOp:translate = (22.658018, 0.18828559, 22.477861)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def "Tree2_6" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (0, -1.5707963, 0)
+        }
+        prepend references = @../Assets/Tree2.usda@
+    )
+    {
+        float2 ui:nodegraph:node:pos = (40, 40)
+        int ui:nodegraph:node:stackingOrder = 2
+        quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
+        float3 xformOp:scale = (0.9999999, 0.99999994, 0.9999999)
+        float3 xformOp:translate = (11.677907, 0.18828537, 26.397127)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 }
