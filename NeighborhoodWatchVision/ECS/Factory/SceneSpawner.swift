@@ -10,7 +10,7 @@ import RealityKitContent
 
 public struct SceneSpawner {
     @MainActor
-    public static func spawnWorld(name sceneName: String = "Scenes/EnviScene") async -> Entity? {
+    public static func spawnWorld(name sceneName: String = "Scenes/EnviScene 1") async -> Entity? {
         do {
             let scene = try await Entity(named: sceneName, in: realityKitContentBundle)
             print("[WorldSpawner] Sukses memuat dunia: \(sceneName)")

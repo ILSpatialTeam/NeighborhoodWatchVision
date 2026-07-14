@@ -10,12 +10,6 @@ import RealityKit
 import RealityKitContent
 import Combine
 
-enum GameState: Equatable {
-    case playing
-    case won
-    case lost(reason: String)
-}
-
 struct ImmersiveView: View {
     @Environment(AppModel.self) private var appModel
     @Environment(\.openWindow) private var openWindow
@@ -45,7 +39,7 @@ struct ImmersiveView: View {
             content.add(headAnchor)
             
             if let hudEntity = attachments.entity(for: "GameHUD") {
-                hudEntity.position = SIMD3<Float>(0, 0, -0.4)
+                hudEntity.position = SIMD3<Float>(0, 0, -0.8)
                 headAnchor.addChild(hudEntity)
             }
             

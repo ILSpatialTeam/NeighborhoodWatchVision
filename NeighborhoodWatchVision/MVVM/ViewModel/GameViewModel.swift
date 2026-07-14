@@ -10,6 +10,12 @@ import RealityKit
 import RealityKitContent
 import Foundation
 
+enum GameState: Equatable {
+    case playing
+    case won
+    case lost(reason: String)
+}
+
 @MainActor
 @Observable
 class GameViewModel {

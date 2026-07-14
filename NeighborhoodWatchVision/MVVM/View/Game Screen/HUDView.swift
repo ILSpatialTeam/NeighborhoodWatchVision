@@ -10,7 +10,6 @@ import SwiftUI
 struct HUDView: View {
     @Environment(SpeechPlaygroundViewModel.self) var speech
     
-//    var gameState: GameState
     var timeString: String = "00.00"
     
     var playerText: String = "Halo, permisi pak..."
@@ -22,10 +21,7 @@ struct HUDView: View {
     var body: some View {
         VStack {
             HStack {
-                
                 Spacer()
-                
-                // Timer
                 Text(timeString)
                     .font(.system(size: 32, weight: .bold, design: .monospaced))
                     .foregroundColor(.white)
@@ -34,7 +30,7 @@ struct HUDView: View {
             }
             
             Spacer()
-            xw
+            
             VStack(spacing: 8) {
                 Button(action: {
                     speech.toggleRecording()
@@ -53,27 +49,16 @@ struct HUDView: View {
                 .padding(.leading, 24)
                 .padding(.vertical, 12)
                 
-//                if !playerText.isEmpty {
                 Text(speech.recordedText.isEmpty ? "..." : speech.recordedText)
-                        .font(.system(size: 16, weight: .regular, design: .default))
-                        .foregroundColor(.gray)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 30)
-//                }
-//                Text(viewModel.recordedText.isEmpty ? "..." : viewModel.recordedText)
-//                    .font(.body)
-//                    .padding()
-//                    .frame(maxWidth: .infinity, alignment: .leading)
-//                    .background(Color.gray.opacity(0.1))
-//                    .cornerRadius(8)
-//            }
-//                if !subtitleText.isEmpty {
-                    Text(subtitleText)
-                        .font(.system(size: 18, weight: .semibold))
-                        .foregroundColor(.white)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 30)
-//                }
+                    .font(.system(size: 16, weight: .regular, design: .default))
+                    .foregroundColor(.gray)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 30)
+                Text(subtitleText)
+                    .font(.system(size: 18, weight: .semibold))
+                    .foregroundColor(.white)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 30)
             }
             .padding(.bottom, 30)
         }

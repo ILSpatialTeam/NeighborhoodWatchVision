@@ -47,4 +47,6 @@ class AppModel {
             print("Detail Error: \(error)")
         }
     }
+    
+    var encounterViewModel: EncounterViewModel = EncounterViewModel()
 }
