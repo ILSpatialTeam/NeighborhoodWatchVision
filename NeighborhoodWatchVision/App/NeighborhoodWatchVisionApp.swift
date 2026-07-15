@@ -9,11 +9,10 @@ import SwiftUI
 
 @main
 struct NeighborhoodWatchVisionApp: App {
-
     @State private var appModel = AppModel()
 
     var body: some Scene {
-        WindowGroup {
+        WindowGroup(id: appModel.windowID) {
             ContentView()
                 .environment(appModel)
         }
@@ -28,6 +27,6 @@ struct NeighborhoodWatchVisionApp: App {
                     appModel.immersiveSpaceState = .closed
                 }
         }
-        .immersionStyle(selection: .constant(.mixed), in: .mixed)
+        .immersionStyle(selection: .constant(.full), in: .full)
      }
 }

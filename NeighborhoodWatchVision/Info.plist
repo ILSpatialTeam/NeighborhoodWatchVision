@@ -19,7 +19,15 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0.0</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1</string>
+	<key>NSHandsTrackingUsageDescription</key>
+	<string>Dibutuhkan untuk melacak pergerakan tangan Anda agar dapat memegang dan berinteraksi dengan ID Card dan elemen game lainnya.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Dibutuhkan untuk merekam perintah suara di pos penjagaan.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Dibutuhkan untuk mengenali suara pemain saat berinteraksi dengan warga.</string>
+	<key>NSWorldSensingUsageDescription</key>
+	<string>Dibutuhkan untuk memindai lingkungan sekitar Anda agar dunia game dapat menyatu dengan ruangan nyata.</string>
 	<key>UIApplicationPreferredDefaultSceneSessionRole</key>
 	<string>UIWindowSceneSessionRoleVolumetricApplication</string>
 	<key>UIApplicationSceneManifest</key>
