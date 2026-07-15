@@ -10,7 +10,7 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["ORM_Texture", "DefaultMaterial", "UnlitMaterial", "HouseMaterial"]
+    reorder nameChildren = ["ORM_Texture", "DefaultMaterial", "UnlitMaterial", "HouseMaterial", "Fog"]
     def Material "ORM_Texture"
     {
         reorder nameChildren = ["PreviewSurface", "Image2D", "ConstantImageFile", "NodeGraph"]
@@ -461,6 +461,86 @@ def Xform "Root"
             float3 outputs:out
             float2 ui:nodegraph:node:pos = (-91.013954, 347.61844)
             int ui:nodegraph:node:stackingOrder = 15
+        }
+    }
+
+    def Material "Fog"
+    {
+        token cullMode = "front" (
+            allowedTokens = ["unspecified", "none", "front", "back"]
+        )
+        color3f inputs:Fog_Color = (0.18634237, 0.37867117, 0.6071875) (
+            colorSpace = "srgb_displayp3"
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (52.01797, 29.242104)
+                    int stackingOrderInSubgraph = 37
+                }
+            }
+        )
+        float inputs:Power = 1 (
+            customData = {
+                dictionary realitykit = {
+                    float2 positionInSubgraph = (-53.8125, 279.04297)
+                    int stackingOrderInSubgraph = 14
+                }
+            }
+        )
+        token outputs:mtlx:surface.connect = </Root/Fog/UnlitSurface.outputs:out>
+        token outputs:realitykit:vertex
+        float2 ui:nodegraph:realitykit:subgraphOutputs:pos = (580.97394, 90.50119)
+        int ui:nodegraph:realitykit:subgraphOutputs:stackingOrder = 80
+
+        def Shader "UnlitSurface"
+        {
+            uniform token info:id = "ND_realitykit_unlit_surfaceshader"
+            bool inputs:applyPostProcessToneMap = 0
+            color3f inputs:color.connect = </Root/Fog.inputs:Fog_Color>
+            bool inputs:hasPremultipliedAlpha
+            float inputs:opacity.connect = </Root/Fog/Multiply.outputs:out>
+            float inputs:opacityThreshold
+            token outputs:out
+            float2 ui:nodegraph:node:pos = (332.83356, 72.6466)
+            int ui:nodegraph:node:stackingOrder = 18
+        }
+
+        def Shader "TextureCoordinates"
+        {
+            uniform token info:id = "ND_texcoord_vector2"
+            float2 outputs:out
+            float2 ui:nodegraph:node:pos = (-540.87915, 94.01847)
+            int ui:nodegraph:node:stackingOrder = 33
+        }
+
+        def Shader "Separate2"
+        {
+            uniform token info:id = "ND_separate2_vector2"
+            float2 inputs:in.connect = </Root/Fog/TextureCoordinates.outputs:out>
+            float outputs:outx
+            float outputs:outy
+            float2 ui:nodegraph:node:pos = (-339.06357, 93.897835)
+            int ui:nodegraph:node:stackingOrder = 34
+        }
+
+        def Shader "SmoothStep"
+        {
+            uniform token info:id = "ND_smoothstep_float"
+            float inputs:high = 0
+            float inputs:in.connect = </Root/Fog/Separate2.outputs:outy>
+            float inputs:low = 1
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (-154.87395, 106.999176)
+            int ui:nodegraph:node:stackingOrder = 35
+        }
+
+        def Shader "Multiply"
+        {
+            uniform token info:id = "ND_multiply_float"
+            float inputs:in1.connect = </Root/Fog/SmoothStep.outputs:out>
+            float inputs:in2.connect = </Root/Fog.inputs:Power>
+            float outputs:out
+            float2 ui:nodegraph:node:pos = (119.29297, 239.23438)
+            int ui:nodegraph:node:stackingOrder = 36
         }
     }
 }
