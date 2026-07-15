@@ -35,6 +35,7 @@ public struct EncounterData: Codable, Identifiable {
 }
 
 public struct IDCardData: Codable {
+    public let idAsset: String
     public let printedName: String
     public let printedAddress: String
     public let printedIDNumber: String

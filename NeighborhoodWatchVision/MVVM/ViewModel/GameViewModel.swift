@@ -23,10 +23,11 @@ class GameViewModel {
     var worldRoot: Entity?
     var currentEncounterIndex = 0
     var gameState: GameState = .playing
-        
+    
     private var encounters: [EncounterData] = []
         
     private var characterCache: [String: Entity] = [:]
+    private var idCardCache: [String: Entity] = [:]
     
     var activeEncounter: EncounterData? {
         guard encounters.indices.contains(currentEncounterIndex) else { return nil }
@@ -57,6 +58,19 @@ class GameViewModel {
                     print("✅ Berhasil memuat karakter: \(modelName)")
                 } catch {
                     print("❌ Gagal memuat karakter \(modelName): \(error)")
+                }
+            }
+            
+            let idCardName = data.idCardData.idAsset
+            if idCardCache[idCardName] == nil {
+                do {
+                    let templateID = try await Entity(named: "Assets/\(idCardName)", in: realityKitContentBundle)
+                    templateID.scale = [0.2, 0.2, 0.2]
+                    
+                    idCardCache[idCardName] = templateID
+                    print("✅ Berhasil memuat ID Card: \(idCardName)")
+                } catch {
+                    print("❌ Gagal memuat ID Card \(idCardName): \(error)")
                 }
             }
         }
@@ -154,16 +168,38 @@ class GameViewModel {
     }
     
     func handleNpcArrived() {
-        for npc in encounterRoot.children {
-            if var encounterComp = npc.components[ActiveEncounterComponent.self],
-               encounterComp.state == .walkingToPost {
-                encounterComp.state = .interrogated
-                npc.components.set(encounterComp)
-                print("State NPC \(encounterComp.data.scenarioName) sekarang: Interrogated. Menunggu tombol ditekan...")
-                break
+            for npc in encounterRoot.children {
+                if var encounterComp = npc.components[ActiveEncounterComponent.self],
+                   encounterComp.state == .walkingToPost {
+                    
+                    encounterComp.state = .interrogated
+                    npc.components.set(encounterComp)
+                    print("State NPC \(encounterComp.data.scenarioName) sekarang: Interrogated.")
+                    
+                    let idAsset = encounterComp.data.idCardData.idAsset
+                    if let templateID = idCardCache[idAsset] {
+                        let handAnchorWrapper = Entity()
+                        handAnchorWrapper.name = "HandAnchorWrapper"
+                        handAnchorWrapper.components.set(IDCardHandComponent(chirality: .left))
+                        
+                        let idCardEntity = templateID.clone(recursive: true)
+                        idCardEntity.name = "IDCardEntity"
+
+                        idCardEntity.position = [0.1, 0.07, 0]
+                        let rotationX = simd_quatf(angle: -.pi / 2, axis: [1, 0, 0])
+
+                        idCardEntity.orientation = rotationX
+                        
+                        handAnchorWrapper.addChild(idCardEntity)
+                        npc.addChild(handAnchorWrapper)
+                        
+                        print("✅ Memunculkan ID Card di tangan pemain untuk \(encounterComp.data.scenarioName)")
+                    }
+                    
+                    break
+                }
             }
         }
-    }
     
     private func spawnNextEncounter() {
         guard case .playing = gameState else { return }
@@ -178,21 +214,18 @@ class GameViewModel {
     }
     
     private func spawnEncounter(data: EncounterData) {
-            let modelName = data.encounterID
-            guard let templateEntity = characterCache[modelName] else {
-                print("⚠️ Karakter \(modelName) tidak ditemukan di cache. Gagal men-spawn.")
-                return
-            }
-            
-            let npcEntity = templateEntity.clone(recursive: true)
-            
-            npcEntity.components.set(ActiveEncounterComponent(
-                data: data,
-                state: .walkingToPost
-            ))
-            
-            encounterRoot.addChild(npcEntity)
+        let modelName = data.encounterID
+        guard let templateEntity = characterCache[modelName] else {
+            print("⚠️ Karakter \(modelName) tidak ditemukan di cache. Gagal men-spawn.")
+            return
         }
+        let npcEntity = templateEntity.clone(recursive: true)
+        npcEntity.components.set(ActiveEncounterComponent(
+            data: data,
+            state: .walkingToPost
+        ))
+        encounterRoot.addChild(npcEntity)
+    }
     
     func notifyTimeline(_ identifier: String) {
         guard let scene = encounterRoot.scene else {

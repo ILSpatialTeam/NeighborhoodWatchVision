@@ -139,6 +139,7 @@
           "Face becomes slightly blurry or unfocused if stared at for too long"
         ],
         "idCardData": {
+          "idAsset" : "Card Sandy",
           "printedName": "Sandy Rezeky",
           "printedAddress": "Block C, No. 2",
           "printedIDNumber": "NV-26-999",
@@ -163,6 +164,7 @@
           "Arrogantly spinning a set of car keys on his finger"
         ],
         "idCardData": {
+          "idAsset" : "Card Alfa",
           "printedName": "Alfa, B.Sc",
           "printedAddress": "Block B, No. 2",
           "printedIDNumber": "NV-26-004",
@@ -187,6 +189,7 @@
           "Holding a vlogging camera"
         ],
         "idCardData": {
+          "idAsset" : "Card Handaru",
           "printedName": "Handaru Wijaya",
           "printedAddress": "Block B, No. 1",
           "printedIDNumber": "NV-26-003",
@@ -211,6 +214,7 @@
           "Smart glasses"
         ],
         "idCardData": {
+          "idAsset" : "Card Fatih",
           "printedName": "Fatih",
           "printedAddress": "Block B, No. 1",
           "printedIDNumber": "NV-26-001",
@@ -234,6 +238,7 @@
           "A highly detailed portrait of a stressed young CEO wearing a neat business suit but with cheap rubber flip-flops, wearing smart glasses, looking like he's in a rush"
         ],
         "idCardData": {
+          "idAsset" : "Card Fatih",
           "printedName": "Fatih",
           "printedAddress": "Block A, No. 1",
           "printedIDNumber": "NV-26-001",
@@ -257,6 +262,7 @@
           "A serene portrait of an Indonesian elder wearing a neat white koko shirt and a black peci, holding a digital tasbih on his finger, smiling warmly"
         ],
         "idCardData": {
+          "idAsset" : "Card Sandy",
           "printedName": "Sandy Rezeky",
           "printedAddress": "Block A, No. 2",
           "printedIDNumber": "NV-26-002",
@@ -280,6 +286,7 @@
           "A hyper-energetic portrait of a street influencer wearing a bright neon hoodie, holding a vlog camera on a selfie stick pointing at his own face, fish-eye lens effect"
         ],
         "idCardData": {
+          "idAsset" : "Card Handaru",
           "printedName": "Handaru Wijaya",
           "printedAddress": "Block B, No. 1",
           "printedIDNumber": "NV-26-003",
@@ -303,6 +310,7 @@
           "A portrait of a lazy government IT staff wearing a faded blue uniform, looking sleepy, wearing a necklace with an 8GB Kingston flash drive pendant"
         ],
         "idCardData": {
+          "idAsset" : "Card Alfa",
           "printedName": "Alfa, B.Sc",
           "printedAddress": "Block B, No. 2",
           "printedIDNumber": "NV-26-004",

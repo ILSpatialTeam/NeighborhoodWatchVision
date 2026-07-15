@@ -9,6 +9,7 @@ import SwiftUI
 import RealityKit
 import RealityKitContent
 import Combine
+import ILSHandTracking
 
 struct ImmersiveView: View {
     @Environment(AppModel.self) private var appModel
@@ -16,9 +17,12 @@ struct ImmersiveView: View {
 
     var body: some View {
         RealityView { content, attachments in
+            ILFeatureHandTrackingSetup.registerSystems()
             ActiveEncounterComponent.registerComponent()
             GateComponent.registerComponent()
             GateSystem.registerSystem()
+            IDCardHandComponent.registerComponent()
+            IDCardHandSystem.registerSystem()
             
             content.add(appModel.gameViewModel.encounterRoot)
             
@@ -88,6 +92,13 @@ struct ImmersiveView: View {
                 appModel.gameViewModel.handleNpcArrived()
             default:
                 break
+            }
+        }
+        .task {
+            do{
+                try await HandTrackingService.shared.start()
+            }catch{
+                print("ada error \(error.localizedDescription)")
             }
         }
     }

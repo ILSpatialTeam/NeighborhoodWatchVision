@@ -102,6 +102,8 @@ targets:
         UIApplicationPreferredDefaultSceneSessionRole: UIWindowSceneSessionRoleVolumetricApplication
         NSSpeechRecognitionUsageDescription: "Dibutuhkan untuk mengenali suara pemain saat berinteraksi dengan warga."
         NSMicrophoneUsageDescription: "Dibutuhkan untuk merekam perintah suara di pos penjagaan."
+        NSHandsTrackingUsageDescription: "Dibutuhkan untuk melacak pergerakan tangan Anda agar dapat memegang dan berinteraksi dengan ID Card dan elemen game lainnya."
+        NSWorldSensingUsageDescription: "Dibutuhkan untuk memindai lingkungan sekitar Anda agar dunia game dapat menyatu dengan ruangan nyata."
     preBuildScripts: []
     postBuildScripts: []
 
