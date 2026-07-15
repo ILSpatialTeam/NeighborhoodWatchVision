@@ -29,6 +29,14 @@ class GameViewModel {
     private var characterCache: [String: Entity] = [:]
     private var idCardCache: [String: Entity] = [:]
     
+    var elapsedMinutes: Int = 0
+        
+    var currentTimeString: String {
+        let hours = elapsedMinutes / 60
+        let minutes = elapsedMinutes % 60
+        return String(format: "%02d.%02d", hours, minutes)
+    }
+    
     var activeEncounter: EncounterData? {
         guard encounters.indices.contains(currentEncounterIndex) else { return nil }
         return encounters[currentEncounterIndex]
@@ -37,6 +45,7 @@ class GameViewModel {
     func startGame(with data: [EncounterData]) {
         self.encounters = data.shuffled()
         self.currentEncounterIndex = 0
+        self.elapsedMinutes = 0
         self.gameState = .playing
         encounterRoot.children.removeAll()
         Task {
@@ -100,7 +109,6 @@ class GameViewModel {
         startGame(with: self.encounters)
     }
     
-    // MARK: - Input Pemain
     func handleButtonPress(entityName: String) {
         print("Button pressed: \(entityName)")
         for npc in encounterRoot.children {
@@ -202,16 +210,25 @@ class GameViewModel {
         }
     
     private func spawnNextEncounter() {
-        guard case .playing = gameState else { return }
-        currentEncounterIndex += 1
-        
-        if currentEncounterIndex < encounters.count {
+            guard case .playing = gameState else { return }
+            
+            // Naikkan index karakter
+            currentEncounterIndex += 1
+            
+            // Hitung progres waktu (Target: 5 Jam = 300 Menit)
+            let progress = Double(currentEncounterIndex) / Double(encounters.count)
+            elapsedMinutes = Int(progress * 300.0)
+            
+            // Cek kondisi menang (Sudah jam 05.00 atau antrean habis)
+            if elapsedMinutes >= 300 || currentEncounterIndex >= encounters.count {
+                elapsedMinutes = 300 // Kunci di 05.00 agar tidak lebih
+                print("Shift selesai! Waktu menunjukkan 05.00.")
+                gameState = .won
+                return
+            }
+            
             spawnEncounter(data: encounters[currentEncounterIndex])
-        } else {
-            print("Shift selesai! Waktu menunjukkan 05.00.")
-            gameState = .won
         }
-    }
     
     private func spawnEncounter(data: EncounterData) {
         let modelName = data.encounterID

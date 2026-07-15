@@ -17,7 +17,7 @@ struct HUDView: View {
         VStack {
             HStack {
                 Spacer()
-                Text(timeString)
+                Text(appModel.gameViewModel.currentTimeString)
                     .font(.system(size: 32, weight: .bold, design: .monospaced))
                     .foregroundColor(.white)
                     .padding(.horizontal, 24)
