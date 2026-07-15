@@ -132,13 +132,13 @@
   ],
     "encounters": [
       {
-        "encounterID": "Tafa",
+        "encounterID": "Fatih",
         "scenarioName": "Tafa Kreasi (Real)",
         "spawnVisuals": [
           "A highly detailed portrait of a stressed young CEO wearing a neat business suit but with cheap rubber flip-flops, wearing smart glasses, looking like he's in a rush"
         ],
         "idCardData": {
-          "idAsset": "Card Tafa",
+          "idAsset": "Card Fatih",
           "printedName": "Tafa Kreasi",
           "gender": "male",
           "birthDay": "18 April 1996",
@@ -157,13 +157,13 @@
         }
       },
       {
-        "encounterID": "Anomaly Tafa",
+        "encounterID": "Anomaly Fatih",
         "scenarioName": "Anomaly Tafa (Bio-Hack Error)",
         "spawnVisuals": [
           "Business suit, but his eyes are literally popping out of their sockets and twitching, bleeding black liquid"
         ],
         "idCardData": {
-          "idAsset": "Card Tafa",
+          "idAsset": "Card Fatih",
           "printedName": "Tafa Kreasi",
           "gender": "male",
           "birthDay": "18 April 1996",
@@ -282,13 +282,13 @@
         }
       },
       {
-        "encounterID": "Benny",
+        "encounterID": "Alfa",
         "scenarioName": "Benny tiban S.Kom (Real)",
         "spawnVisuals": [
           "A portrait of an introverted programmer wearing a black hoodie over a faded uniform, dark circles under eyes, clutching a mechanical keyboard"
         ],
         "idCardData": {
-          "idAsset": "Card Benny",
+          "idAsset": "Card Alfa",
           "printedName": "Benny tiban S.Kom",
           "gender": "male",
           "birthDay": "14 April 1995",
@@ -307,13 +307,13 @@
         }
       },
       {
-        "encounterID": "Anomaly Benny",
+        "encounterID": "Anomaly Alfa",
         "scenarioName": "Anomaly Benny (The Flesh Glitch)",
         "spawnVisuals": [
           "Faded uniform, but parts of his face look like pixelated, bleeding static, and he moves in a laggy, stuttering motion"
         ],
         "idCardData": {
-          "idAsset": "Card Benny",
+          "idAsset": "Card Alfa",
           "printedName": "Benny tiban S.Kom",
           "gender": "male",
           "birthDay": "14 April 1995",

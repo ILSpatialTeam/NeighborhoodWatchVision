@@ -21,11 +21,11 @@ struct AIPrepView: View {
                     .foregroundStyle(.blue)
                     .symbolEffect(.pulse)
                 
-                Text("Pos Penjagaan")
+                Text("Guard Post")
                     .font(.extraLargeTitle)
                     .fontWeight(.bold)
                 
-                Text("Sistem Interogasi AI")
+                Text("AI Interrogation System")
                     .font(.title2)
                     .foregroundStyle(.secondary)
             }
@@ -34,7 +34,7 @@ struct AIPrepView: View {
             Group {
                 if model.encounterViewModel.isLoading {
                     VStack(spacing: 16) {
-                        Text("Menginisialisasi Jaringan AI...")
+                        Text("Initiating AI Model...")
                             .font(.headline)
                         
                         ProgressView(value: model.encounterViewModel.downloadProgress, total: 1.0)
@@ -42,7 +42,7 @@ struct AIPrepView: View {
                             .tint(.blue)
                         
                         HStack {
-                            Text(model.encounterViewModel.loadingStatus.isEmpty ? "Menyiapkan data..." : model.encounterViewModel.loadingStatus)
+                            Text(model.encounterViewModel.loadingStatus.isEmpty ? "Preparing data..." : model.encounterViewModel.loadingStatus)
                                 .font(.caption)
                                 .foregroundStyle(.secondary)
                                 .lineLimit(1)
@@ -61,7 +61,7 @@ struct AIPrepView: View {
                     
                 } else if !model.encounterViewModel.isModelLoaded {
                     VStack(spacing: 16) {
-                        Text("Sistem AI saat ini dalam keadaan mati. Nyalakan sistem untuk memulai shift penjagaan Anda.")
+                        Text("The AI system is currently offline. Turn on the system to start your guard shift.")
                             .font(.callout)
                             .multilineTextAlignment(.center)
                             .foregroundStyle(.secondary)
@@ -74,7 +74,7 @@ struct AIPrepView: View {
                         }) {
                             HStack(spacing: 10) {
                                 Image(systemName: "power")
-                                Text("Nyalakan Sistem AI")
+                                Text("Turn On AI System")
                                     .fontWeight(.semibold)
                             }
                             .padding(.horizontal, 16)
@@ -92,7 +92,7 @@ struct AIPrepView: View {
                             Image(systemName: "checkmark.seal.fill")
                                 .foregroundStyle(.green)
                                 .font(.title2)
-                            Text("Sistem AI Aktif & Siap")
+                            Text("AI System activated")
                                 .font(.headline)
                                 .foregroundStyle(.green)
                         }
@@ -101,7 +101,7 @@ struct AIPrepView: View {
                         .background(Color.green.opacity(0.15))
                         .clipShape(Capsule())
                         
-                        FrameButton(title: "Mulai Shift (Masuk Pos)") {
+                        FrameButton(title: "Start Shift") {
                             Task {
                                 model.currentFlow = .playing
                                 await openImmersiveSpace(id: model.immersiveSpaceID)

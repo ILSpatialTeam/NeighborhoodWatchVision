@@ -19,7 +19,7 @@ struct ResultView: View {
                 .font(.system(size: 60, weight: .black))
                 .foregroundColor(isWin ? .green : .red)
             
-            Text(isWin ? "Kamu berhasil menjaga keamanan perumahan." : "Anomali berhasil menyusup.")
+            Text(isWin ? "You successfully kept the neighborhood safe." : "An anomaly managed to infiltrate.")
                 .font(.title)
             
             HStack(spacing: 30) {
@@ -37,7 +37,5 @@ struct ResultView: View {
             }
         }
         .padding(60)
-        .glassBackgroundEffect()
     }
 }
-

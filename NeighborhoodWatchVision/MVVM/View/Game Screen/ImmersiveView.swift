@@ -88,7 +88,7 @@ struct ImmersiveView: View {
 
             switch identifier {
             case "Arrived":
-                print("Timeline RCP mengirim: Arrived")
+                print("Timeline RCP send: Arrived")
                 appModel.gameViewModel.handleNpcArrived()
             default:
                 break

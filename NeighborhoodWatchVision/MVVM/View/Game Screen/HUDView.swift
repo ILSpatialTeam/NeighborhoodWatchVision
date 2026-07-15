@@ -71,7 +71,7 @@ struct HUDView: View {
                     .padding(.horizontal, 30)
                 
                 if appModel.encounterViewModel.isNPCThinking {
-                    Text("Berpikir...")
+                    Text("Thinking...")
                         .font(.system(size: 18, weight: .semibold))
                         .foregroundColor(.yellow)
                         .multilineTextAlignment(.center)
