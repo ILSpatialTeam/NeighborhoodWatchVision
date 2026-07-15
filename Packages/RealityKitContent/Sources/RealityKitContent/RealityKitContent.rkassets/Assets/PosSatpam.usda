@@ -163,7 +163,7 @@ def Xform "Root"
         references = @../Materials/PBR_Material.usda@</Root/UnlitMaterial>
     )
     {
-        asset inputs:BakedTexture = @../Texture/PosSatpam/Pos_Satpam_Table_TX_BaseColor.1001.png@
+        asset inputs:BakedTexture = @../Texture/PosSatpam/Pos_Satpam_Table_TX_BaseColor.1001 1.png@
         token outputs:mtlx:surface
         token outputs:realitykit:vertex
         token outputs:surface.connect = </Root/Mat_Table/UsdPreviewSurface.outputs:surface>

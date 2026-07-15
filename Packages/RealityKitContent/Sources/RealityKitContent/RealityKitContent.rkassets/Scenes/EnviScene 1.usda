@@ -14,7 +14,7 @@ def Xform "Root" (
     }
 )
 {
-    reorder nameChildren = ["Gate", "Houses", "Fences", "Cube", "PosSatpam", "Scope", "DirectionalLight", "Tree1", "Tree2", "Tree1_1", "Tree1_2", "Tree1_3", "Tree2_1", "Tree1_4", "Tree2_2", "Tree2_3", "Tree1_5", "Tree1_6", "Tree2_4", "Tree1_7", "Tree1_8", "Tree2_5", "Tree2_6", "Trees", "Timeline"]
+    reorder nameChildren = ["Ground", "Gate", "Houses", "Fences", "Cube", "PosSatpam", "Scope", "DirectionalLight", "Trees", "freesound_community_night_ambience_17064_mp3", "BGM", "SkySphere_1"]
     quatf xformOp:orient = (0.7117866, 0, 0.7023957, 0)
     float3 xformOp:translate = (-4.9758244, -0.18828316, -6.934334)
     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
@@ -145,7 +145,7 @@ def Xform "Root" (
         {
             quatf xformOp:orient = (0.7033745, 0, 0.7108195, 0)
             float3 xformOp:scale = (0.8, 0.8000001, 0.8)
-            float3 xformOp:translate = (12.451066, -7.450581e-8, -5.61927)
+            float3 xformOp:translate = (11.533097, 4.4703487e-8, -7.1626096)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
 
@@ -157,6 +157,39 @@ def Xform "Root" (
             quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
             float3 xformOp:scale = (0.8, 0.8000001, 0.8)
             float3 xformOp:translate = (22.87407, -1.4901163e-8, 29.103376)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "House3_1" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (0, -4.712389, 0)
+            }
+            references = @../Assets/House3.usda@
+        )
+        {
+            float2 ui:nodegraph:node:pos = (20, 20)
+            int ui:nodegraph:node:stackingOrder = 1
+            quatf xformOp:orient = (0.696693, 0, 0.7173692, 0)
+            float3 xformOp:scale = (0.7999999, 0.7999999, 0.7999999)
+            float3 xformOp:translate = (12.677678, 0.000001564622, -18.81509)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "House6_1" (
+            active = true
+            customData = {
+                float3 rotationEulerHint = (0, -1.5707963, 0)
+            }
+            references = @../Assets/House6.usda@
+        )
+        {
+            reorder nameChildren = ["House6", "Material"]
+            float2 ui:nodegraph:node:pos = (20, 20)
+            int ui:nodegraph:node:stackingOrder = 1
+            quatf xformOp:orient = (0.70628834, 0, -0.70792425, 0)
+            float3 xformOp:scale = (0.7999999, 0.7999999, 0.7999999)
+            float3 xformOp:translate = (21.544487, 7.450581e-8, -15.086394)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
     }
@@ -233,7 +266,7 @@ def Xform "Root" (
     }
 
     def Cube "Cube" (
-        active = true
+        active = false
         prepend apiSchemas = ["MaterialBindingAPI"]
         customData = {
             float3 rotationEulerHint = (0, 0, 0)
@@ -369,13 +402,6 @@ def Xform "Root" (
         }
     }
 
-    def RealityKitTimeline "Timeline"
-    {
-        def RealityKitTrack "Track"
-        {
-        }
-    }
-
     def Scope "Trees" (
         active = true
     )
@@ -444,7 +470,7 @@ def Xform "Root" (
             int ui:nodegraph:node:stackingOrder = 1
             quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
             float3 xformOp:scale = (0.99999976, 0.9999999, 0.99999976)
-            float3 xformOp:translate = (4.3190765, 1.0430813e-7, 19.48275)
+            float3 xformOp:translate = (4.6433973, 1.04308135e-7, 20.230469)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
 
@@ -593,6 +619,165 @@ def Xform "Root" (
             float3 xformOp:translate = (11.677906, 0.18828535, 26.397125)
             uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
         }
+
+        def "Tree1_9" (
+            active = true
+            references = @../Assets/Tree1.usda@
+        )
+        {
+            float2 ui:nodegraph:node:pos = (40, 40)
+            int ui:nodegraph:node:stackingOrder = 2
+            quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
+            float3 xformOp:scale = (0.99999976, 0.9999999, 0.99999976)
+            float3 xformOp:translate = (-6.117601, 1.04308135e-7, -7.432343)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "Tree2_7" (
+            active = true
+            references = @../Assets/Tree2.usda@
+        )
+        {
+            float2 ui:nodegraph:node:pos = (20, 20)
+            int ui:nodegraph:node:stackingOrder = 1
+            quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
+            float3 xformOp:scale = (0.99999976, 0.9999999, 0.99999976)
+            float3 xformOp:translate = (4.2238283, 0.18828383, 24.92988)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "Tree1_10" (
+            active = true
+            references = @../Assets/Tree1.usda@
+        )
+        {
+            float2 ui:nodegraph:node:pos = (40, 40)
+            int ui:nodegraph:node:stackingOrder = 2
+            quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
+            float3 xformOp:scale = (0.99999976, 0.9999999, 0.99999976)
+            float3 xformOp:translate = (-4.6963124, 1.04308135e-7, 26.040789)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "Tree2_8" (
+            active = true
+            references = @../Assets/Tree2.usda@
+        )
+        {
+            float2 ui:nodegraph:node:pos = (60, 60)
+            int ui:nodegraph:node:stackingOrder = 3
+            quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
+            float3 xformOp:scale = (0.99999976, 0.9999999, 0.99999976)
+            float3 xformOp:translate = (4.5599775, 0.18828422, -7.478641)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "Tree2_9" (
+            active = true
+            references = @../Assets/Tree2.usda@
+        )
+        {
+            float2 ui:nodegraph:node:pos = (80, 80)
+            int ui:nodegraph:node:stackingOrder = 4
+            quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
+            float3 xformOp:scale = (0.99999976, 0.9999999, 0.99999976)
+            float3 xformOp:translate = (10.85234, 0.18828423, -13.184356)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "Tree1_11" (
+            active = true
+            references = @../Assets/Tree1.usda@
+        )
+        {
+            float2 ui:nodegraph:node:pos = (40, 40)
+            int ui:nodegraph:node:stackingOrder = 2
+            quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
+            float3 xformOp:scale = (0.99999976, 0.9999999, 0.99999976)
+            float3 xformOp:translate = (4.701892, 1.04308135e-7, -12.217164)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "Tree2_10" (
+            active = true
+            references = @../Assets/Tree2.usda@
+        )
+        {
+            float2 ui:nodegraph:node:pos = (80, 80)
+            int ui:nodegraph:node:stackingOrder = 4
+            quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
+            float3 xformOp:scale = (0.99999976, 0.9999999, 0.99999976)
+            float3 xformOp:translate = (4.426462, 0.18828422, -17.531958)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+
+        def "Tree2_11" (
+            active = true
+            references = @../Assets/Tree2.usda@
+        )
+        {
+            float2 ui:nodegraph:node:pos = (100, 100)
+            int ui:nodegraph:node:stackingOrder = 5
+            quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
+            float3 xformOp:scale = (0.99999976, 0.9999999, 0.99999976)
+            float3 xformOp:translate = (20.904875, 0.18828423, -21.439531)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+        }
+    }
+
+    def RealityKitAudioFile "freesound_community_night_ambience_17064_mp3"
+    {
+        uniform asset file = @../Audio/freesound_community-night-ambience-17064.mp3@
+        uniform bool shouldLoop = 1
+    }
+
+    def RealityKitTimeline "BGM"
+    {
+        def RealityKitTrack "Track"
+        {
+            def RealityKitAction "Play_Audio"
+            {
+                string actionKind = "audio"
+                string audioResourceName = "freesound_community-night-ambience-17064.mp3"
+                bool controlPlayback = 1
+                double duration = 180.072
+                uniform token info:id = "4F6A07AB-A81F-48A1-8B88-8D865D067FD8"
+                double loopCount = 0
+                double startTime = 0
+                rel target = </Cube_1/Cube_1>
+
+                def RealityKitStruct "handoffType"
+                {
+                }
+            }
+        }
+    }
+
+    def "SkySphere_1" (
+        active = true
+        prepend references = @../SkySphere 1.usdz@
+    )
+    {
+        quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
+        float3 xformOp:scale = (0.9999999, 0.99999994, 0.9999999)
+        float3 xformOp:translate = (-6.867641, 0.18828315, 5.0674763)
+
+        over "SkySphere_mat" (
+            references = @Immersive.usda@</Root/SkyDome/Looks/DomeMATSG>
+        )
+        {
+        }
+    }
+
+    def "Ground" (
+        active = true
+        prepend references = @../Assets/Ground.usda@
+    )
+    {
+        quatf xformOp:orient = (0.7117866, 0, -0.7023958, 0)
+        float3 xformOp:scale = (15, 5.0000005, 5)
+        float3 xformOp:translate = (10.30865, 0.000001654029, -0.13692428)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 }
 
@@ -601,15 +786,18 @@ def Cube "Cube_1" (
     prepend apiSchemas = ["MaterialBindingAPI"]
 )
 {
+    reorder nameChildren = ["Cube_1", "DefaultMaterial"]
     rel material:binding = </Cube_1/DefaultMaterial>
     double size = 0.2
-    quatf xformOp:orient = (1, 0, 0, 0)
-    float3 xformOp:scale = (1, 1, 1)
-    float3 xformOp:translate = (0, 0, 0)
+    quatf xformOp:orient = (1, 0, -4.2877257e-8, 0)
+    float3 xformOp:scale = (0.99999994, 1, 0.99999994)
+    float3 xformOp:translate = (-4.7683716e-7, -1.4901161e-8, -4.7683716e-7)
     uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
 
     def Material "DefaultMaterial"
     {
+        token outputs:mtlx:surface
+        token outputs:realitykit:vertex
         token outputs:surface.connect = </Cube_1/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
 
         def Shader "DefaultSurfaceShader"
@@ -618,6 +806,75 @@ def Cube "Cube_1" (
             color3f inputs:diffuseColor = (1, 1, 1)
             float inputs:roughness = 0.75
             token outputs:surface
+        }
+    }
+
+    def Cube "Cube_1" (
+        active = true
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Cube_1/Cube_1/DefaultMaterial>
+        double size = 0.2
+        float2 ui:nodegraph:node:pos = (16.422394, 147.84479)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (1, 0, -4.2877257e-8, 0)
+        float3 xformOp:scale = (0.99999994, 1, 0.99999994)
+        float3 xformOp:translate = (-4.5933416e-7, 1.5646219e-7, 2.38541)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Material "DefaultMaterial"
+        {
+            token outputs:surface.connect = </Cube_1/Cube_1/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+            def Shader "DefaultSurfaceShader"
+            {
+                uniform token info:id = "UsdPreviewSurface"
+                color3f inputs:diffuseColor = (1, 1, 1)
+                float inputs:roughness = 0.75
+                token outputs:surface
+            }
+        }
+
+        def RealityKitComponent "AudioLibrary"
+        {
+            uniform token info:id = "RealityKit.AudioLibrary"
+
+            def RealityKitDict "resources"
+            {
+                string[] keys = ["freesound_community-night-ambience-17064.mp3"]
+                rel values = </Root/freesound_community_night_ambience_17064_mp3>
+            }
+        }
+
+        def RealityKitComponent "RCP_BehaviorsContainer"
+        {
+            rel behaviors = </Cube_1/Cube_1/OnAddedToScene>
+            uniform token info:id = "RCP.BehaviorsContainer"
+        }
+
+        def Preliminary_Behavior "OnAddedToScene"
+        {
+            rel actions = </Cube_1/Cube_1/OnAddedToScene/Action>
+            uniform bool exclusive
+            rel triggers = </Cube_1/Cube_1/OnAddedToScene/Trigger>
+
+            def Preliminary_Trigger "Trigger"
+            {
+                rel affectedObjects = </Cube_1/Cube_1>
+                token info:id = "SceneTransition"
+            }
+
+            def Preliminary_Action "Action"
+            {
+                rel affectedObjects = </Root>
+                rel animationLibraryKey = </Root/BGM>
+                rel animationLibraryKeyOverrideKey = </Cube_1/Cube_1/OnAddedToScene/Trigger>
+                token info:id = "PlayTimeline"
+                int loops = 0
+                int performCount = 1
+                token type = "serial"
+            }
         }
     }
 }
